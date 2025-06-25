@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Evento | Amou, Amado?</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-search-container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="imagens/logo.png" alt="Logo Amou, Amado?" class="main-logo">
+                </a>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Pesquisar eventos, artistas, locais..." aria-label="Campo de pesquisa">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <button class="header-btn btn-create">
+                <i class="fas fa-plus-circle"></i> <span class="btn-text">Criar Evento</span>
+            </button>
+            <button class="header-btn btn-events">
+                <i class="fas fa-calendar-check"></i> <span class="btn-text">Meus Eventos</span>
+            </button>
+            <button class="header-btn btn-profile">
+                <i class="fas fa-user-circle"></i> <span class="btn-text">Perfil</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal - Detalhes do Evento -->
+    <main class="container event-detail-container">
+        <div class="event-header">
+            <div class="event-image">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="Festival de Verão Salvador">
+            </div>
+            
+            <div class="event-info">
+                <h1 class="event-title">Festival de Verão Salvador</h1>
+                <div class="event-category">Música</div>
+                
+                <div class="event-meta">
+                    <div class="meta-item">
+                        <div class="meta-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="meta-content">
+                            <h4>Local</h4>
+                            <p>Casa de Show Maria - Salvador, BA</p>
+                        </div>
+                    </div>
+                    
+                    <div class="meta-item">
+                        <div class="meta-icon">
+                            <i class="far fa-calendar-alt"></i>
+                        </div>
+                        <div class="meta-content">
+                            <h4>Data</h4>
+                            <p>Sábado, 12 de julho às 16:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="meta-item">
+                        <div class="meta-icon">
+                            <i class="far fa-clock"></i>
+                        </div>
+                        <div class="meta-content">
+                            <h4>Duração</h4>
+                            <p>6 horas</p>
+                        </div>
+                    </div>
+                    
+                    <div class="meta-item">
+                        <div class="meta-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="meta-content">
+                            <h4>Classificação</h4>
+                            <p>16 anos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="event-price">R$ 80,00</div>
+                
+                <button class="btn-buy" id="buy-tickets">
+                    <i class="fas fa-ticket-alt"></i> Comprar Ingressos
+                </button>
+            </div>
+        </div>
+        
+        <div class="event-body">
+            <div class="event-description">
+                <h2 class="section-title">Descrição do Evento</h2>
+                <p>O Festival de Verão Salvador é o maior evento musical da região Nordeste, reunindo os maiores nomes da música brasileira em um único palco. Em sua 12ª edição, o festival promete trazer uma experiência inesquecível com shows de alta qualidade e uma estrutura completa para seu conforto.</p>
+                
+                <p>Com duração de 6 horas, o evento contará com performances especiais de artistas renomados e promessas da nova geração musical. O palco principal será montado na icônica Casa de Show Maria, conhecida por sua acústica perfeita e ambiente descontraído.</p>
+                
+                <div class="event-highlights">
+                    <h3 class="section-title" style="font-size: 1.5rem;">Destaques</h3>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="highlight-content">
+                            <p>Show exclusivo da banda "Som da Bahia" com participação especial de convidados</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="highlight-content">
+                            <p>Espaço gastronômico com comidas típicas baianas e opções internacionais</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="highlight-content">
+                            <p>Área VIP com vista privilegiada e serviços exclusivos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="highlight-content">
+                            <p>Estacionamento gratuito para os primeiros 200 veículos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="section-title" style="font-size: 1.5rem;">Artistas Confirmados</h3>
+                <p>O festival contará com as seguintes atrações musicais:</p>
+                
+                <ul class="artist-list">
+                    <li>Ivete Sangalo - Show principal (21:00)</li>
+                    <li>Claudia Leitte - Performance especial (19:30)</li>
+                    <li>Banda Eva - Toca clássicos do axé (18:00)</li>
+                    <li>Bell Marques - Abertura do evento (16:30)</li>
+                    <li>DJ Set - Antes e entre os shows</li>
+                </ul>
+            </div>
+            
+            <div class="event-details">
+                <div class="details-card">
+                    <h2 class="section-title">Informações</h2>
+                    
+                    <!-- Criador do Evento -->
+                    <div class="detail-item">
+                        <div class="detail-title">
+                            <i class="fas fa-user"></i>
+                            <span>Criador do Evento</span>
+                        </div>
+                        <a href="perfil-criador.html?id=1" class="creator-link" id="creator-profile">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span class="creator-name">Festival Produções</span>
+                        </a>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="detail-title">
+                            <i class="fas fa-tags"></i>
+                            <span>Preços</span>
+                        </div>
+                        <ul class="price-list">
+                            <li>Pista Comum: R$ 80,00</li>
+                            <li>Pista Premium: R$ 150,00</li>
+                            <li>Área VIP: R$ 250,00</li>
+                            <li>Meia-entrada para estudantes e idosos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-title">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Políticas</span>
+                        </div>
+                        <ul class="policy-list">
+                            <li>Proibida a entrada com alimentos e bebidas</li>
+                            <li>Estacionamento: R$ 20,00 (vagas limitadas)</li>
+                            <li>Área para fumantes disponível</li>
+                            <li>Evento sujeito a lotação</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-title">
+                            <i class="fas fa-phone"></i>
+                            <span>Contato</span>
+                        </div>
+                        <p>Para mais informações, entre em contato:</p>
+                        <ul class="contact-list">
+                            <li>Telefone: (71) 99999-9999</li>
+                            <li>Email: contato@festivalverao.com.br</li>
+                            <li>Site: www.festivalverao.com.br</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-placeholder" id="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Localização do Evento</h3>
+                        <p>Casa de Show Maria - Salvador, BA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="event-gallery">
+            <h2 class="section-title">Galeria</h2>
+            <div class="gallery-grid" id="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Festival">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1472653816316-3ad6f10a6592?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Show">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Palco">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Público">
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>A Amou,Amado? é uma plataforma que buscar dar visibilidade para os eventos culturais e educativos feitos por e para o público LGBTQIA+ de Salvador.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Eventos</a></li>
+                    <li><a href="#">Artistas</a></li>
+                    <li><a href="#">Locais</a></li>
+                    <li><a href="#">Promoções</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> Amouamadocontato@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> (71) 99999-9999</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Salvador, BA - Brasil</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright container">
+            <p>&copy; 2023 ShowTime. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configuração dos botões do header
+            document.querySelector('.btn-create').addEventListener('click', () => {
+                alert('Redirecionando para a página de criação de evento');
+            });
+            
+            document.querySelector('.btn-events').addEventListener('click', () => {
+                alert('Redirecionando para Meus Eventos');
+            });
+            
+            document.querySelector('.btn-profile').addEventListener('click', () => {
+                alert('Redirecionando para o Perfil');
+            });
+            
+            // Configuração do botão de compra
+            document.getElementById('buy-tickets').addEventListener('click', () => {
+                alert('Redirecionando para a página de compra de ingressos');
+            });
+        });
+    </script>
+</body>
+</html>

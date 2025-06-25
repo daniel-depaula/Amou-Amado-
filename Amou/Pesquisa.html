@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa - Amou,Amado?</title>
+    <link rel="stylesheet" href="pesquisa.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-search-container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="imagens\logo.png" alt="Logo Amou, Amado?" class="main-logo">
+                </a>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Pesquisar eventos, artistas, locais..." aria-label="Campo de pesquisa">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <button class="header-btn btn-create">
+                <i class="fas fa-plus-circle"></i> <span class="btn-text">Criar Evento</span>
+            </button>
+            <button class="header-btn btn-events">
+                <i class="fas fa-calendar-check"></i> <span class="btn-text">Meus Eventos</span>
+            </button>
+            <button class="header-btn btn-profile">
+                <i class="fas fa-user-circle"></i> <span class="btn-text">Perfil</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Resultados da Pesquisa</h1>
+        <p>Eventos encontrados para: <span class="search-term" id="search-term">teatro</span></p>
+        <p class="results-count" id="results-count">36 eventos encontrados</p>
+    </div>
+
+    <!-- Seção de Resultados -->
+    <div class="container">
+        <div class="results-section">
+            <div class="results-container" id="results-container">
+                <!-- Resultados serão inseridos aqui via JS -->
+            </div>
+            
+            <!-- Paginação -->
+            <div class="pagination" id="pagination-container">
+                <!-- Os botões de paginação serão gerados via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>A Amou,Amado? é uma plataforma que buscar dar visibilidade para os eventos culturais e educativos feitos por e para o público LGBTQIA+ de Salvador.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="#">Artistas</a></li>
+                    <li><a href="#">Locais</a></li>
+                    <li><a href="#">Promoções</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> Amouamadocontato@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> (71) 99999-9999</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Salvador, BA - Brasil</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright container">
+            <p>&copy; 2023 Amou,Amado?. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dados de exemplo para eventos (36 eventos)
+        const eventos = [
+            // Teatro (12 eventos)
+            { id: 1, titulo: "Peça Teatral: Amor em Tempos Modernos", categoria: "Teatro", data: "Sábado, 15/07 às 20:00", local: "Teatro Vila Velha", imagem: "https://source.unsplash.com/random/600x400/?theater,1", preco: "R$ 50,00" },
+            { id: 2, titulo: "O Teatro das Diversidades", categoria: "Teatro", data: "Domingo, 16/07 às 19:30", local: "Teatro Castro Alves", imagem: "https://source.unsplash.com/random/600x400/?theater,2", preco: "R$ 45,00" },
+            { id: 3, titulo: "Performance: Identidades", categoria: "Teatro", data: "Sexta, 21/07 às 21:00", local: "Espaço Cultural Barroquinha", imagem: "https://source.unsplash.com/random/600x400/?theater,3", preco: "R$ 40,00" },
+            { id: 4, titulo: "Comédia: Vida Queer", categoria: "Teatro", data: "Quinta, 20/07 às 20:30", local: "Teatro Martim Gonçalves", imagem: "https://source.unsplash.com/random/600x400/?theater,4", preco: "R$ 35,00" },
+            { id: 5, titulo: "Drama: Famílias Modernas", categoria: "Teatro", data: "Sábado, 22/07 às 19:00", local: "Teatro SESC", imagem: "https://source.unsplash.com/random/600x400/?theater,5", preco: "R$ 55,00" },
+            { id: 6, titulo: "Musical: Cores da Vida", categoria: "Teatro", data: "Domingo, 23/07 às 18:00", local: "Teatro ICBA", imagem: "https://source.unsplash.com/random/600x400/?theater,6", preco: "R$ 60,00" },
+            { id: 7, titulo: "Monólogo: Minha História", categoria: "Teatro", data: "Sábado, 29/07 às 21:00", local: "Teatro Xisto Bahia", imagem: "https://source.unsplash.com/random/600x400/?theater,7", preco: "R$ 30,00" },
+            { id: 8, titulo: "Infantil: Mundo Colorido", categoria: "Teatro", data: "Domingo, 30/07 às 16:00", local: "Teatro do SESI", imagem: "https://source.unsplash.com/random/600x400/?theater,8", preco: "R$ 25,00" },
+            { id: 9, titulo: "Experimental: Expressões", categoria: "Teatro", data: "Sexta, 28/07 às 22:00", local: "Espaço Cultural Casa Preta", imagem: "https://source.unsplash.com/random/600x400/?theater,9", preco: "R$ 40,00" },
+            { id: 10, titulo: "Clássico: Romeu e Julieta Queer", categoria: "Teatro", data: "Sábado, 29/07 às 20:00", local: "Teatro Gamboa Nova", imagem: "https://source.unsplash.com/random/600x400/?theater,10", preco: "R$ 45,00" },
+            { id: 11, titulo: "Contemporâneo: Reflexões", categoria: "Teatro", data: "Domingo, 30/07 às 19:00", local: "Teatro do Movimento", imagem: "https://source.unsplash.com/random/600x400/?theater,11", preco: "R$ 35,00" },
+            { id: 12, titulo: "Comédia Romântica: Amores Modernos", categoria: "Teatro", data: "Sábado, 05/08 às 21:00", local: "Teatro Gregório de Mattos", imagem: "https://source.unsplash.com/random/600x400/?theater,12", preco: "R$ 50,00" },
+            
+            // Palestras (12 eventos)
+            { id: 13, titulo: "Palestra: Direitos LGBTQIA+ no Brasil", categoria: "Palestra", data: "Quarta, 19/07 às 19:00", local: "Centro Cultural da Diversidade", imagem: "https://source.unsplash.com/random/600x400/?lecture,1", preco: "Gratuito" },
+            { id: 14, titulo: "Oficina de Expressão Corporal", categoria: "Oficina", data: "Sábado, 22/07 às 14:00", local: "Espaço Criativo Pelourinho", imagem: "https://source.unsplash.com/random/600x400/?workshop,1", preco: "R$ 30,00" },
+            { id: 15, titulo: "Discussão: Representatividade nas Artes", categoria: "Palestra", data: "Quinta, 20/07 às 18:30", local: "Centro Universitário de Cultura", imagem: "https://source.unsplash.com/random/600x400/?lecture,2", preco: "Gratuito" },
+            { id: 16, titulo: "Workshop: Fotografia para Iniciantes", categoria: "Oficina", data: "Sábado, 22/07 às 10:00", local: "Centro de Artes Visuais", imagem: "https://source.unsplash.com/random/600x400/?workshop,2", preco: "R$ 80,00" },
+            { id: 17, titulo: "Palestra: Saúde Mental LGBTQIA+", categoria: "Palestra", data: "Terça, 25/07 às 19:30", local: "Auditório da Faculdade de Medicina", imagem: "https://source.unsplash.com/random/600x400/?lecture,3", preco: "Gratuito" },
+            { id: 18, titulo: "Oficina de Escrita Criativa", categoria: "Oficina", data: "Quinta, 27/07 às 15:00", local: "Biblioteca Central", imagem: "https://source.unsplash.com/random/600x400/?workshop,3", preco: "R$ 40,00" },
+            { id: 19, titulo: "Palestra: Empreendedorismo LGBTQIA+", categoria: "Palestra", data: "Sexta, 28/07 às 18:00", local: "Centro de Empreendedorismo", imagem: "https://source.unsplash.com/random/600x400/?lecture,4", preco: "R$ 20,00" },
+            { id: 20, titulo: "Workshop: Design Gráfico Básico", categoria: "Oficina", data: "Sábado, 29/07 às 09:00", local: "Escola de Design", imagem: "https://source.unsplash.com/random/600x400/?workshop,4", preco: "R$ 90,00" },
+            { id: 21, titulo: "Palestra: História do Movimento LGBTQIA+", categoria: "Palestra", data: "Quarta, 26/07 às 20:00", local: "Museu da Cidade", imagem: "https://source.unsplash.com/random/600x400/?lecture,5", preco: "Gratuito" },
+            { id: 22, titulo: "Oficina: Culinária Vegana", categoria: "Oficina", data: "Domingo, 30/07 às 11:00", local: "Espaço Gastronômico", imagem: "https://source.unsplash.com/random/600x400/?workshop,5", preco: "R$ 70,00" },
+            { id: 23, titulo: "Palestra: Direitos Trabalhistas", categoria: "Palestra", data: "Segunda, 31/07 às 19:00", local: "Sindicato dos Trabalhadores", imagem: "https://source.unsplash.com/random/600x400/?lecture,6", preco: "Gratuito" },
+            { id: 24, titulo: "Workshop: Meditação Guiada", categoria: "Oficina", data: "Sábado, 05/08 às 08:00", local: "Parque da Cidade", imagem: "https://source.unsplash.com/random/600x400/?workshop,6", preco: "R$ 25,00" },
+            
+            // Shows (12 eventos)
+            { id: 25, titulo: "Show de Drag Queens: Rainbow Night", categoria: "Show", data: "Sábado, 15/07 às 22:00", local: "Clube Fantoches", imagem: "https://source.unsplash.com/random/600x400/?dragshow,1", preco: "R$ 60,00" },
+            { id: 26, titulo: "Festival de Música LGBTQIA+", categoria: "Show", data: "Sábado, 29/07 às 17:00", local: "Praça Castro Alves", imagem: "https://source.unsplash.com/random/600x400/?concert,1", preco: "Gratuito" },
+            { id: 27, titulo: "DJ Party: Pride Edition", categoria: "Show", data: "Sexta, 28/07 às 23:00", local: "Casa de Show Downtown", imagem: "https://source.unsplash.com/random/600x400/?party,1", preco: "R$ 40,00" },
+            { id: 28, titulo: "Show Acústico: Vozes da Diversidade", categoria: "Show", data: "Domingo, 23/07 às 18:00", local: "Largo do Pelourinho", imagem: "https://source.unsplash.com/random/600x400/?acoustic,1", preco: "Gratuito" },
+            { id: 29, titulo: "Festa Tema: Anos 80 LGBTQIA+", categoria: "Show", data: "Sábado, 22/07 às 22:00", local: "Clube LGBTQIA+", imagem: "https://source.unsplash.com/random/600x400/?party,2", preco: "R$ 50,00" },
+            { id: 30, titulo: "Show de MPB Queer", categoria: "Show", data: "Quinta, 27/07 às 21:00", local: "Bar Musical", imagem: "https://source.unsplash.com/random/600x400/?concert,2", preco: "R$ 35,00" },
+            { id: 31, titulo: "Festa de Encerramento do Orgulho", categoria: "Show", data: "Domingo, 30/07 às 20:00", local: "Farol da Barra", imagem: "https://source.unsplash.com/random/600x400/?party,3", preco: "R$ 70,00" },
+            { id: 32, titulo: "Show de Rock Alternativo", categoria: "Show", data: "Sexta, 21/07 às 23:30", local: "Garagem Underground", imagem: "https://source.unsplash.com/random/600x400/?rockconcert,1", preco: "R$ 30,00" },
+            { id: 33, titulo: "Karaokê Pride", categoria: "Show", data: "Quarta, 26/07 às 20:00", local: "Bar Karaokê", imagem: "https://source.unsplash.com/random/600x400/?karaoke,1", preco: "R$ 20,00" },
+            { id: 34, titulo: "Festa de Arraial LGBTQIA+", categoria: "Show", data: "Sábado, 29/07 às 16:00", local: "Espaço Cultural", imagem: "https://source.unsplash.com/random/600x400/?party,4", preco: "R$ 40,00" },
+            { id: 35, titulo: "Show de Sertanejo Universitário", categoria: "Show", data: "Sexta, 04/08 às 22:00", local: "Casa de Show Sertaneja", imagem: "https://source.unsplash.com/random/600x400/?countryconcert,1", preco: "R$ 60,00" },
+            { id: 36, titulo: "Festival Eletrônico: Pride Edition", categoria: "Show", data: "Sábado, 05/08 às 20:00", local: "Arena Eletrônica", imagem: "https://source.unsplash.com/random/600x400/?electronic,1", preco: "R$ 100,00" }
+        ];
+
+        // Constantes para paginação
+        const EVENTS_PER_PAGE = 12;
+        let currentPage = 1;
+        let totalPages = 1;
+        let currentEvents = [];
+
+        // Função para renderizar eventos para a página atual
+        function renderEvents(events, page) {
+            const container = document.getElementById('results-container');
+            const startIndex = (page - 1) * EVENTS_PER_PAGE;
+            const paginatedEvents = events.slice(startIndex, startIndex + EVENTS_PER_PAGE);
+            
+            if (paginatedEvents.length === 0) {
+                container.innerHTML = `
+                    <div class="no-results">
+                        <i class="fas fa-search"></i>
+                        <h2>Nenhum evento encontrado</h2>
+                        <p>Não encontramos eventos que correspondam à sua pesquisa. Tente usar palavras-chave diferentes ou explore nossas categorias.</p>
+                        <a href="eventos.html" class="suggestion-btn">Ver todos os eventos</a>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            paginatedEvents.forEach(event => {
+                const eventCard = document.createElement('div');
+                eventCard.className = 'event-card';
+                eventCard.innerHTML = `
+                    <div class="event-image">
+                        <img src="${event.imagem}" alt="${event.titulo}">
+                    </div>
+                    <div class="event-content">
+                        <span class="event-category">${event.categoria}</span>
+                        <h3 class="event-title">${event.titulo}</h3>
+                        <div class="event-meta">
+                            <div class="meta-item">
+                                <i class="far fa-calendar-alt"></i>
+                                <span>${event.data}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>${event.local}</span>
+                            </div>
+                        </div>
+                        <div class="event-price">${event.preco}</div>
+                    </div>
+                `;
+                container.appendChild(eventCard);
+            });
+        }
+
+        // Função para renderizar a paginação
+        function renderPagination(totalEvents, currentPage) {
+            const paginationContainer = document.getElementById('pagination-container');
+            totalPages = Math.ceil(totalEvents / EVENTS_PER_PAGE);
+            
+            if (totalPages <= 1) {
+                paginationContainer.innerHTML = '';
+                return;
+            }
+            
+            let paginationHTML = '';
+            
+            // Botão Anterior
+            paginationHTML += `
+                <button class="pagination-btn ${currentPage === 1 ? 'disabled' : ''}" 
+                        onclick="changePage(${currentPage - 1})" 
+                        ${currentPage === 1 ? 'disabled' : ''}>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            `;
+            
+            // Botões de página
+            const maxVisiblePages = 5;
+            const halfMax = Math.floor(maxVisiblePages / 2);
+            let startPage = Math.max(1, currentPage - halfMax);
+            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+            
+            // Ajustar se não estamos no início
+            if (endPage - startPage < maxVisiblePages - 1) {
+                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            }
+            
+            for (let i = startPage; i <= endPage; i++) {
+                paginationHTML += `
+                    <button class="pagination-btn ${i === currentPage ? 'active' : ''}" 
+                            onclick="changePage(${i})">
+                        ${i}
+                    </button>
+                `;
+            }
+            
+            // Botão Próximo
+            paginationHTML += `
+                <button class="pagination-btn ${currentPage === totalPages ? 'disabled' : ''}" 
+                        onclick="changePage(${currentPage + 1})" 
+                        ${currentPage === totalPages ? 'disabled' : ''}>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            `;
+            
+            paginationContainer.innerHTML = paginationHTML;
+        }
+
+        // Função para mudar de página
+        function changePage(newPage) {
+            if (newPage < 1 || newPage > totalPages) return;
+            
+            currentPage = newPage;
+            renderEvents(currentEvents, currentPage);
+            renderPagination(currentEvents.length, currentPage);
+            
+            // Atualizar contagem de resultados
+            const startIndex = (currentPage - 1) * EVENTS_PER_PAGE + 1;
+            const endIndex = Math.min(currentPage * EVENTS_PER_PAGE, currentEvents.length);
+            document.getElementById('results-count').textContent = 
+                `Mostrando ${startIndex}-${endIndex} de ${currentEvents.length} eventos encontrados`;
+            
+            // Scroll suave para o topo
+            window.scrollTo({
+                top: 400,
+                behavior: 'smooth'
+            });
+        }
+
+        // Inicializar a página
+        document.addEventListener('DOMContentLoaded', () => {
+            // Definir eventos atuais
+            currentEvents = eventos;
+            
+            // Renderizar eventos para a página 1
+            renderEvents(currentEvents, 1);
+            
+            // Renderizar paginação
+            renderPagination(currentEvents.length, 1);
+            
+            // Configurar funcionalidade de pesquisa
+            const searchInput = document.getElementById('search-input');
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    const term = searchInput.value.trim();
+                    if (term) {
+                        document.getElementById('search-term').textContent = term;
+                        currentEvents = eventos.filter(event => 
+                            event.titulo.toLowerCase().includes(term.toLowerCase()) ||
+                            event.categoria.toLowerCase().includes(term.toLowerCase()) ||
+                            event.local.toLowerCase().includes(term.toLowerCase())
+                        );
+                        
+                        // Resetar para a primeira página
+                        currentPage = 1;
+                        
+                        // Atualizar contagem de resultados
+                        const endIndex = Math.min(EVENTS_PER_PAGE, currentEvents.length);
+                        document.getElementById('results-count').textContent = 
+                            `Mostrando 1-${endIndex} de ${currentEvents.length} eventos encontrados`;
+                        
+                        // Renderizar eventos e paginação
+                        renderEvents(currentEvents, currentPage);
+                        renderPagination(currentEvents.length, currentPage);
+                    }
+                }
+            });
+            
+            // Configurar botões do header
+            document.querySelector('.btn-create').addEventListener('click', () => {
+                alert('Redirecionando para a página de criação de evento');
+            });
+            
+            document.querySelector('.btn-events').addEventListener('click', () => {
+                alert('Redirecionando para Meus Eventos');
+            });
+            
+            document.querySelector('.btn-profile').addEventListener('click', () => {
+                alert('Redirecionando para o Perfil');
+            });
+        });
+
+        // Expor função para o escopo global
+        window.changePage = changePage;
+    </script>
+</body>
+</html>

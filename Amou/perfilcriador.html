@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Organizador</title>
+    <link rel="stylesheet" href="perfilcriador.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-search-container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="imagens/logo.png" alt="Logo Amou, Amado?" class="main-logo">
+                </a>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Pesquisar eventos, artistas, locais..." aria-label="Campo de pesquisa">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <button class="header-btn btn-create">
+                <i class="fas fa-plus-circle"></i> <span class="btn-text">Criar Evento</span>
+            </button>
+            <button class="header-btn btn-events">
+                <i class="fas fa-calendar-check"></i> <span class="btn-text">Meus Eventos</span>
+            </button>
+            <button class="header-btn btn-profile">
+                <i class="fas fa-user-circle"></i> <span class="btn-text">Perfil</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal - Perfil do Organizador -->
+    <main class="container organizer-container">
+        <!-- Carrossel de Fotos -->
+        <div class="organizer-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="Foto do Organizador">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="Foto do Organizador">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="Foto do Organizador">
+                </div>
+                
+                <!-- Botões de Navegação -->
+                <button class="carousel-btn prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="organizer-header">
+            <div class="organizer-avatar">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80" alt="Foto do Organizador">
+            </div>
+            
+            <div class="organizer-info">
+                <h1 class="organizer-name">Festival Produções</h1>
+                
+                <div class="organizer-meta">
+                    <div class="meta-item">
+                        <div class="meta-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="meta-content">
+                            <h4>Localização</h4>
+                            <p>Salvador, BA</p>
+                        </div>
+                    </div>
+                    
+                    <div class="meta-item">
+                        <div class="meta-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="meta-content">
+                            <h4>Membro desde</h4>
+                            <p>Janeiro 2020</p>
+                        </div>
+                    </div>
+                    
+                    <div class="meta-item">
+                        <div class="meta-icon">
+                            <i class="fas fa-ticket-alt"></i>
+                        </div>
+                        <div class="meta-content">
+                            <h4>Eventos realizados</h4>
+                            <p>24 eventos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="organizer-bio">
+                    <h2 class="section-title">Sobre</h2>
+                    <p>A Festival Produções é uma empresa especializada em organização de eventos musicais de grande porte na região Nordeste. Com mais de 10 anos de experiência, já trouxemos para Salvador os maiores nomes da música brasileira e internacional, sempre com excelência em produção e atendimento ao público.</p>
+                </div>
+                
+                <div class="organizer-contact">
+                    <h2 class="section-title">Contato</h2>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-envelope"></i> contato@festivalproducoes.com.br</li>
+                        <li><i class="fas fa-phone"></i> (71) 99999-9999</li>
+                        <li><i class="fas fa-globe"></i> www.festivalproducoes.com.br</li>
+                        <li><i class="fab fa-instagram"></i> @festivalproducoes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- NOVA SEÇÃO DA GALERIA -->
+        <div class="organizer-gallery">
+            <div class="section-header">
+                <h2 class="section-title">Galeria de Fotos</h2>
+            </div>
+            
+            <div class="gallery-container" id="gallery-container">
+                <!-- Miniaturas serão adicionadas dinamicamente via JS -->
+            </div>
+        </div>
+        
+        <!-- SEÇÃO EVENTOS ORGANIZADOS -->
+        <div class="organizer-events">
+            <div class="section-header">
+                <h2 class="section-title">Eventos Organizados</h2>
+                <a href="todos-eventos.html?organizador=123" class="btn-ver-mais">
+                    Ver mais <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="events-horizontal">
+                <div class="events-container" id="events-grid">
+                    <!-- Eventos serão carregados via JavaScript -->
+                </div>
+                <div class="events-arrow events-arrow-left">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="events-arrow events-arrow-right">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>A Amou,Amado? é uma plataforma que buscar dar visibilidade para os eventos culturais e educativos feitos por e para o público LGBTQIA+ de Salvador.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Eventos</a></li>
+                    <li><a href="#">Artistas</a></li>
+                    <li><a href="#">Locais</a></li>
+                    <li><a href="#">Promoções</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> Amouamadocontato@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> (71) 99999-9999</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Salvador, BA - Brasil</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright container">
+            <p>&copy; 2023 ShowTime. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Overlay para visualização ampliada -->
+    <div class="gallery-overlay" id="gallery-overlay">
+        <div class="overlay-content">
+            <span class="close-btn" id="close-btn">
+                <i class="fas fa-times"></i>
+            </span>
+            <img id="overlay-image" src="" alt="Imagem Ampliada">
+            <div class="gallery-nav">
+                <button class="gallery-nav-btn" id="prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="gallery-nav-btn" id="next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Função para obter parâmetros da URL
+        function getUrlParams() {
+            const params = {};
+            const queryString = window.location.search.substring(1);
+            const pairs = queryString.split('&');
+            
+            pairs.forEach(pair => {
+                const [key, value] = pair.split('=');
+                if (key) {
+                    params[key] = decodeURIComponent(value || '');
+                }
+            });
+            
+            return params;
+        }
+
+        // Simulação de dados do organizador e seus eventos
+        const organizers = {
+            '123': {
+                id: 123,
+                name: "Festival Produções",
+                bio: "A Festival Produções é uma empresa especializada em organização de eventos musicais de grande porte na região Nordeste. Com mais de 10 anos de experiência, já trouxemos para Salvador os maiores nomes da música brasileira e internacional, sempre com excelência em produção e atendimento ao público.",
+                location: "Salvador, BA",
+                memberSince: "Janeiro 2020",
+                eventsCount: 24,
+                contact: {
+                    email: "contato@festivalproducoes.com.br",
+                    phone: "(71) 99999-9999",
+                    website: "www.festivalproducoes.com.br",
+                    instagram: "@festivalproducoes"
+                },
+                events: [
+                    {
+                        id: 1,
+                        title: "Festival de Verão Salvador",
+                        date: "12/07/2023",
+                        location: "Casa de Show Maria",
+                        category: "Música",
+                        image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+                        price: 80
+                    },
+                    {
+                        id: 2,
+                        title: "Noite do Sertanejo",
+                        date: "05/08/2023",
+                        location: "Arena Salvador",
+                        category: "Música",
+                        image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+                        price: 120
+                    },
+                    {
+                        id: 3,
+                        title: "Feijoada da Madrugada",
+                        date: "19/08/2023",
+                        location: "Praça da Sé",
+                        category: "Gastronomia",
+                        image: "https://images.unsplash.com/photo-1556911220-ef412aea183c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+                        price: 60
+                    },
+                    {
+                        id: 4,
+                        title: "Carnaval Fora de Época",
+                        date: "28/10/2023",
+                        location: "Barra Ondina",
+                        category: "Festival",
+                        image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+                        price: 150
+                    },
+                    {
+                        id: 5,
+                        title: "Rock in Salvador",
+                        date: "15/09/2023",
+                        location: "Estádio Fonte Nova",
+                        category: "Música",
+                        image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+                        price: 100
+                    },
+                    {
+                        id: 6,
+                        title: "Festival de Dança",
+                        date: "22/11/2023",
+                        location: "Teatro Castro Alves",
+                        category: "Dança",
+                        image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+                        price: 70
+                    }
+                ]
+            }
+        };
+
+        // Função para carregar perfil do organizador
+        function loadOrganizerProfile() {
+            const params = getUrlParams();
+            const organizerId = params.id || '123';
+            const organizer = organizers[organizerId];
+            
+            if (!organizer) {
+                document.querySelector('.organizer-name').textContent = "Organizador não encontrado";
+                return;
+            }
+            
+            // Preencher dados do organizador
+            document.querySelector('.organizer-name').textContent = organizer.name;
+            document.querySelector('.organizer-bio p').textContent = organizer.bio;
+            
+            // Preencher metadados
+            document.querySelectorAll('.meta-content p')[0].textContent = organizer.location;
+            document.querySelectorAll('.meta-content p')[1].textContent = organizer.memberSince;
+            document.querySelectorAll('.meta-content p')[2].textContent = `${organizer.eventsCount} eventos`;
+            
+            // Preencher contato
+            const contactItems = document.querySelectorAll('.contact-list li');
+            contactItems[0].innerHTML = `<i class="fas fa-envelope"></i> ${organizer.contact.email}`;
+            contactItems[1].innerHTML = `<i class="fas fa-phone"></i> ${organizer.contact.phone}`;
+            contactItems[2].innerHTML = `<i class="fas fa-globe"></i> ${organizer.contact.website}`;
+            contactItems[3].innerHTML = `<i class="fab fa-instagram"></i> ${organizer.contact.instagram}`;
+            
+            // Preencher eventos
+            const eventsGrid = document.getElementById('events-grid');
+            eventsGrid.innerHTML = '';
+            
+            organizer.events.forEach(event => {
+                const eventCard = document.createElement('div');
+                eventCard.className = 'event-card';
+                eventCard.innerHTML = `
+                    <a href="detalhes-evento.html?id=${event.id}">
+                        <div class="event-card-image">
+                            <img src="${event.image}" alt="${event.title}">
+                        </div>
+                        <div class="event-card-content">
+                            <h3 class="event-card-title">${event.title}</h3>
+                            <div class="event-card-meta">
+                                <div class="event-card-meta-item">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>${event.date}</span>
+                                </div>
+                                <div class="event-card-meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>${event.location}</span>
+                                </div>
+                            </div>
+                            <div class="event-card-price">R$ ${event.price}</div>
+                        </div>
+                    </a>
+                `;
+                eventsGrid.appendChild(eventCard);
+            });
+        }
+
+        // Função do Carrossel
+        function initCarousel() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            let currentIndex = 0;
+            
+            // Mostrar primeiro slide
+            slides[currentIndex].classList.add('active');
+            
+            // Função para mostrar slide
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+            }
+            
+            // Evento botão anterior
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                showSlide(currentIndex);
+            });
+            
+            // Evento botão próximo
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                showSlide(currentIndex);
+            });
+            
+            // Autoplay
+            let autoplay = setInterval(() => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                showSlide(currentIndex);
+            }, 5000);
+            
+            // Pausar autoplay ao interagir
+            const carousel = document.querySelector('.carousel-container');
+            carousel.addEventListener('mouseenter', () => clearInterval(autoplay));
+            carousel.addEventListener('mouseleave', () => {
+                autoplay = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    showSlide(currentIndex);
+                }, 5000);
+            });
+        }
+
+        // Função para navegação dos eventos
+        function setupEventsNavigation() {
+            const leftArrow = document.querySelector('.events-arrow-left');
+            const rightArrow = document.querySelector('.events-arrow-right');
+            const container = document.querySelector('.events-container');
+            
+            leftArrow.addEventListener('click', () => {
+                container.scrollBy({
+                    left: -300,
+                    behavior: 'smooth'
+                });
+            });
+            
+            rightArrow.addEventListener('click', () => {
+                container.scrollBy({
+                    left: 300,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Função para inicializar a galeria
+        function initGallery() {
+            const galleryContainer = document.getElementById('gallery-container');
+            const overlay = document.getElementById('gallery-overlay');
+            const overlayImage = document.getElementById('overlay-image');
+            const closeBtn = document.getElementById('close-btn');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            // Imagens da galeria
+            const images = [
+                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80",
+                "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80",
+                "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80",
+                "https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80",
+                "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80",
+                "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80",
+                "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80",
+                "https://images.unsplash.com/photo-1517462964-21fdcec3f25b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80",
+                "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80"
+            ];
+            
+            let currentIndex = 0;
+            
+            // Criar miniaturas
+            images.forEach((imgSrc, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = 'gallery-thumbnail';
+                thumbnail.innerHTML = `<img src="${imgSrc}" alt="Foto da galeria ${index + 1}">`;
+                
+                thumbnail.addEventListener('click', function() {
+                    // Atualizar imagem no overlay
+                    currentIndex = index;
+                    overlayImage.src = imgSrc;
+                    
+                    // Exibir overlay
+                    overlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+                
+                galleryContainer.appendChild(thumbnail);
+            });
+            
+            // Fechar overlay
+            closeBtn.addEventListener('click', () => {
+                overlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Navegação entre imagens
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                overlayImage.src = images[currentIndex];
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % images.length;
+                overlayImage.src = images[currentIndex];
+            });
+            
+            // Fechar ao clicar fora da imagem
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Navegação por teclado
+            document.addEventListener('keydown', (e) => {
+                if (overlay.classList.contains('active')) {
+                    if (e.key === 'ArrowLeft') {
+                        currentIndex = (currentIndex - 1 + images.length) % images.length;
+                        overlayImage.src = images[currentIndex];
+                    } else if (e.key === 'ArrowRight') {
+                        currentIndex = (currentIndex + 1) % images.length;
+                        overlayImage.src = images[currentIndex];
+                    } else if (e.key === 'Escape') {
+                        overlay.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                }
+            });
+        }
+
+        // Inicialização da página
+        document.addEventListener('DOMContentLoaded', () => {
+            loadOrganizerProfile();
+            initCarousel();
+            setupEventsNavigation();
+            initGallery(); // Inicializa a nova galeria
+            
+            // Configurar botões do header
+            document.querySelector('.btn-login')?.addEventListener('click', () => {
+                alert('Redirecionando para a página de login');
+            });
+            
+            document.querySelector('.btn-create').addEventListener('click', () => {
+                alert('Redirecionando para a página de criação de evento');
+            });
+            
+            document.querySelector('.btn-events').addEventListener('click', () => {
+                alert('Redirecionando para Meus Eventos');
+            });
+        });
+    </script>
+</body>
+</html>

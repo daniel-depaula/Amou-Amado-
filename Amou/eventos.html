@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos - Amou,Amado?</title>
+    <link rel="stylesheet" href="eventos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+</head>
+<body>
+    <!-- Header atualizado -->
+   <!-- Cole este novo header -->
+<header>
+  <div class="logo-search-container">
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="imagens/logo.png" alt="Logo Amou, Amado?" class="main-logo">
+      </a>
+    </div>
+    
+    <div class="search-bar">
+      <input type="text" placeholder="Pesquisar eventos, artistas, locais..." aria-label="Campo de pesquisa">
+      <i class="fas fa-search search-icon"></i>
+    </div>
+  </div>
+
+  <div class="header-actions">
+    <button class="header-btn btn-create">
+      <i class="fas fa-plus-circle"></i> <span class="btn-text">Criar Evento</span>
+    </button>
+    <button class="header-btn btn-events">
+      <i class="fas fa-calendar-check"></i> <span class="btn-text">Meus Eventos</span>
+    </button>
+    <button class="header-btn btn-profile">
+      <i class="fas fa-user-circle"></i> <span class="btn-text">Perfil</span>
+    </button>
+  </div>
+</header>
+
+
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Eventos</h1>
+        <p>Explore nossa seleção de eventos culturais e educativos em Salvador</p>
+    </div>
+
+    <!-- Seção Teatro - 6 eventos -->
+    <section class="category-section">
+        <div class="section-header">
+            <h2 class="section-title">Teatro e Apresentações</h2>
+            <a href="tipoevento.html?categoria=Teatro e Apresentações" class="btn-ver-tudo">
+                Ver tudo <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        
+        <div class="events-horizontal">
+            <div class="events-container" id="teatro-container">
+                <!-- Eventos de Teatro serão inseridos aqui via JS -->
+            </div>
+            <div class="nav-arrow arrow-left" data-container="teatro-container">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="nav-arrow arrow-right" data-container="teatro-container">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Palestras - 8 eventos -->
+    <section class="category-section">
+        <div class="section-header">
+            <h2 class="section-title">Palestras e Oficinas</h2>
+            <a href="tipoevento.html?categoria=palestraseoficinas" class="btn-ver-tudo">
+                Ver tudo <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        
+        <div class="events-horizontal">
+            <div class="events-container" id="palestras-container">
+                <!-- Eventos de Palestras serão inseridos aqui via JS -->
+            </div>
+            <div class="nav-arrow arrow-left" data-container="palestras-container">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="nav-arrow arrow-right" data-container="palestras-container">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Shows - 10 eventos -->
+    <section class="category-section">
+        <div class="section-header">
+            <h2 class="section-title">Shows e Festas</h2>
+            <a href="tipoevento.html?categoria=showsefestas" class="btn-ver-tudo">
+                Ver tudo <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        
+        <div class="events-horizontal">
+            <div class="events-container" id="shows-container">
+                <!-- Eventos de Shows serão inseridos aqui via JS -->
+            </div>
+            <div class="nav-arrow arrow-left" data-container="shows-container">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="nav-arrow arrow-right" data-container="shows-container">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>A Amou,Amado? é uma plataforma que buscar dar visibilidade para os eventos culturais e educativos feitos por e para o público LGBTQIA+ de Salvador.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="#">Artistas</a></li>
+                    <li><a href="#">Locais</a></li>
+                    <li><a href="#">Promoções</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> Amouamadocontato@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> (71) 99999-9999</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Salvador, BA - Brasil</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright container">
+            <p>&copy; 2023 Amou,Amado?. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dados de exemplo para eventos
+        const eventos = {
+            teatro: Array(6).fill().map((_, i) => ({
+                id: i + 1,
+                titulo: `Peça Teatral ${i + 1}`,
+                categoria: "Teatro",
+                data: `Sábado, ${15 + i}/07 às ${20 - i}:00`,
+                local: `Teatro ${['Vila Velha', 'Castro Alves', 'Martim Gonçalves', 'SESC', 'ICBA', 'Xisto'][i]}`,
+                imagem: `https://source.unsplash.com/random/600x400/?theater,${i}`,
+                preco: `R$ ${30 + (i * 5)},00`
+            })),
+            palestras: Array(8).fill().map((_, i) => ({
+                id: i + 7,
+                titulo: `Palestra ${i + 1}`,
+                categoria: "Palestra",
+                data: `Quarta, ${19 + i}/07 às ${19 - (i % 2)}:00`,
+                local: `Centro ${['Cultural', 'de Convenções', 'Universitário', 'de Inovação', 'LGBTQIA+', 'de Artes', 'de Tecnologia', 'Histórico'][i]}`,
+                imagem: `https://source.unsplash.com/random/600x400/?lecture,${i}`,
+                preco: i % 2 === 0 ? "Gratuito" : `R$ ${20 + (i * 5)},00`
+            })),
+            shows: Array(10).fill().map((_, i) => ({
+                id: i + 15,
+                titulo: `Show ${i + 1}`,
+                categoria: "Show",
+                data: `Sábado, ${15 + i}/07 às ${22 - (i % 3)}:00`,
+                local: `Local ${['Praça Castro Alves', 'Farol da Barra', 'Pelourinho', 'Clube Fantoches', 'Casa de Show', 'Arena Fonte Nova', 'Teatro Castro Alves', 'Largo do Campo Grande', 'Praia de Ondina', 'Dique do Tororó'][i]}`,
+                imagem: `https://source.unsplash.com/random/600x400/?concert,${i}`,
+                preco: `R$ ${40 + (i * 5)},00`
+            }))
+        };
+
+        // Função para renderizar eventos em um container
+        function renderEvents(events, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            events.forEach(event => {
+                const eventCard = document.createElement('div');
+                eventCard.className = 'event-card';
+                eventCard.innerHTML = `
+                    <div class="event-image">
+                        <img src="${event.imagem}" alt="${event.titulo}">
+                    </div>
+                    <div class="event-content">
+                        <span class="event-category">${event.categoria}</span>
+                        <h3 class="event-title">${event.titulo}</h3>
+                        <div class="event-meta">
+                            <div class="meta-item">
+                                <i class="far fa-calendar-alt"></i>
+                                <span>${event.data}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>${event.local}</span>
+                            </div>
+                        </div>
+                        <div class="event-price">${event.preco}</div>
+                    </div>
+                `;
+                container.appendChild(eventCard);
+            });
+        }
+
+        // Função para navegação com setas
+        function setupNavigation() {
+            document.querySelectorAll('.nav-arrow').forEach(arrow => {
+                arrow.addEventListener('click', () => {
+                    const containerId = arrow.getAttribute('data-container');
+                    const container = document.getElementById(containerId);
+                    const direction = arrow.classList.contains('arrow-left') ? -1 : 1;
+                    const scrollAmount = container.clientWidth * 0.8;
+                    
+                    container.scrollBy({
+                        left: scrollAmount * direction,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        }
+
+        // Carregar eventos quando a página estiver pronta
+        document.addEventListener('DOMContentLoaded', () => {
+            renderEvents(eventos.teatro, 'teatro-container');
+            renderEvents(eventos.palestras, 'palestras-container');
+            renderEvents(eventos.shows, 'shows-container');
+            setupNavigation();
+            
+            // Configurar botões do header
+            document.querySelector('.btn-create').addEventListener('click', () => {
+                alert('Redirecionando para a página de criação de evento');
+            });
+            
+            document.querySelector('.btn-events').addEventListener('click', () => {
+                alert('Redirecionando para Meus Eventos');
+            });
+            
+            document.querySelector('.btn-profile').addEventListener('click', () => {
+                alert('Redirecionando para o Perfil');
+            });
+        });
+    </script>
+</body>
+</html>

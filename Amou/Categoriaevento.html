@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Culturais | Amou, Amado?</title>
+    <link rel="stylesheet" href="categoriaevento.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-search-container">
+            <div class="logo-container">
+                <a href="#">
+                    <img src="imagens\logo.png"  alt="Logo"   class="main-logo">
+                </a>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Pesquisar eventos, artistas, locais..." aria-label="Campo de pesquisa">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <button class="header-btn btn-create">
+                <i class="fas fa-plus-circle"></i> <span class="btn-text">Criar Evento</span>
+            </button>
+            <button class="header-btn btn-events">
+                <i class="fas fa-calendar-check"></i> <span class="btn-text">Meus Eventos</span>
+            </button>
+            <button class="header-btn btn-profile">
+                <i class="fas fa-user-circle"></i> <span class="btn-text">Perfil</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <h1 class="page-title">Teatro e Apresentações</h1>
+        
+        <p class="category-description">
+            Descubra as mais emocionantes peças teatrais, performances e apresentações artísticas da comunidade LGBTQIA+ de Salvador. 
+            De clássicos reinventados a produções contemporâneas, encontre cultura, emoção e representatividade.
+        </p>
+        
+        <!-- Filtros -->
+        <section class="filters">
+            <div class="filter-group">
+                <label for="category-filter">Categoria</label>
+                <select id="category-filter">
+                    <option value="all">Todas categorias</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="date-filter">Filtrar por Data</label>
+                <select id="date-filter">
+                    <option value="all">Todas as datas</option>
+                    <option value="week">Esta semana</option>
+                    <option value="month">Este mês</option>
+                    <option value="upcoming">Próximos eventos</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="price-filter">Filtrar por Preço</label>
+                <select id="price-filter">
+                    <option value="all">Todos os preços</option>
+                    <option value="free">Gratuitos</option>
+                    <option value="50">Até R$ 50</option>
+                    <option value="100">Até R$ 100</option>
+                    <option value="200">Até R$ 200</option>
+                </select>
+            </div>
+            
+            <div class="filter-buttons">
+                <button class="btn-apply">Aplicar Filtros</button>
+                <button class="btn-reset">Limpar</button>
+            </div>
+        </section> 
+        
+        <!-- Grid de Eventos -->
+        <section class="events-grid" id="events-container">
+            <!-- Os eventos serão inseridos aqui pelo JavaScript -->
+        </section>
+        
+        <!-- Paginação -->
+        <div class="pagination" id="pagination-container">
+            <!-- Botões de paginação serão gerados aqui -->
+        </div>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>A Amou, Amado? é uma plataforma que busca dar visibilidade para os eventos culturais 
+                    e educativos feitos por e para o público LGBTQIA+ de Salvador.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Eventos</a></li>
+                    <li><a href="#">Artistas</a></li>
+                    <li><a href="#">Locais</a></li>
+                    <li><a href="#">Promoções</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> Amouamadocontato@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> (71) 99999-9999</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Salvador, BA - Brasil</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright container">
+            <p>&copy; 2023 Amou, Amado?. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dados de eventos (24 eventos para demonstrar paginação)
+        const performances = [
+            // Teatro Clássico
+            {
+                id: 1,
+                title: "Hamlet - A Tragédia Dinamarquesa",
+                location: "Teatro Castro Alves - Salvador, BA",
+                date: "Sábado, 15 de julho às 20:00",
+                image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 90,
+                category: "Teatro Clássico",
+                duration: "2h30min",
+                ageRating: "14 anos"
+            },
+            {
+                id: 2,
+                title: "Romeu e Julieta",
+                location: "Teatro Vila Velha - Salvador, BA",
+                date: "Domingo, 16 de julho às 19:30",
+                image: "https://images.unsplash.com/photo-1579092583978-9e125cac7f0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 70,
+                category: "Teatro Clássico",
+                duration: "2h",
+                ageRating: "Livre"
+            },
+            {
+                id: 3,
+                title: "Macbeth",
+                location: "Teatro ICBA - Salvador, BA",
+                date: "Sexta, 21 de julho às 21:00",
+                image: "https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 120,
+                category: "Teatro Clássico",
+                duration: "2h15min",
+                ageRating: "16 anos"
+            },
+            
+            // Comédia
+            {
+                id: 4,
+                title: "O Auto da Compadecida",
+                location: "Teatro SESC Pelourinho - Salvador, BA",
+                date: "Quinta, 27 de julho às 20:30",
+                image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 60,
+                category: "Comédia",
+                duration: "1h45min",
+                ageRating: "12 anos"
+            },
+            {
+                id: 5,
+                title: "A Comédia dos Erros",
+                location: "Teatro Gamboa Nova - Salvador, BA",
+                date: "Sábado, 29 de julho às 18:00",
+                image: "https://images.unsplash.com/photo-1549144511-78ee39f5c993?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 50,
+                category: "Comédia",
+                duration: "1h30min",
+                ageRating: "Livre"
+            },
+            {
+                id: 6,
+                title: "Os Saltimbancos",
+                location: "Teatro Santo Antônio - Salvador, BA",
+                date: "Domingo, 30 de julho às 17:00",
+                image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 40,
+                category: "Comédia",
+                duration: "2h",
+                ageRating: "Livre"
+            },
+            
+            // Dança
+            {
+                id: 7,
+                title: "Balé Clássico: O Lago dos Cisnes",
+                location: "Sala Principal do TCA - Salvador, BA",
+                date: "Sexta, 4 de agosto às 21:00",
+                image: "https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 120,
+                category: "Dança",
+                duration: "2h15min",
+                ageRating: "Livre"
+            },
+            {
+                id: 8,
+                title: "Dança Contemporânea: Movimentos Urbanos",
+                location: "Teatro Gamboa Nova - Salvador, BA",
+                date: "Sábado, 5 de agosto às 19:00",
+                image: "https://images.unsplash.com/photo-1556159992-e189f07a03e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 80,
+                category: "Dança",
+                duration: "1h30min",
+                ageRating: "14 anos"
+            },
+            {
+                id: 9,
+                title: "Dança Afro-Brasileira",
+                location: "Teatro SESC Pelourinho - Salvador, BA",
+                date: "Domingo, 6 de agosto às 18:00",
+                image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 60,
+                category: "Dança",
+                duration: "1h45min",
+                ageRating: "Livre"
+            },
+            
+            // Música
+            {
+                id: 10,
+                title: "Orquestra Sinfônica da Bahia",
+                location: "Sala de Concertos do TCA - Salvador, BA",
+                date: "Sexta, 11 de agosto às 20:00",
+                image: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 100,
+                category: "Música",
+                duration: "2h",
+                ageRating: "Livre"
+            },
+            {
+                id: 11,
+                title: "Show de MPB",
+                location: "Casa da Música - Salvador, BA",
+                date: "Sábado, 12 de agosto às 21:00",
+                image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 70,
+                category: "Música",
+                duration: "2h",
+                ageRating: "16 anos"
+            },
+            {
+                id: 12,
+                title: "Tributo a Legião Urbana",
+                location: "Teatro Vila Velha - Salvador, BA",
+                date: "Domingo, 13 de agosto às 19:30",
+                image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 90,
+                category: "Música",
+                duration: "2h30min",
+                ageRating: "14 anos"
+            },
+            {
+                id: 13,
+                title: "Jazz & Blues Night",
+                location: "Teatro ICBA - Salvador, BA",
+                date: "Sexta, 18 de agosto às 21:00",
+                image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 80,
+                category: "Música",
+                duration: "2h",
+                ageRating: "16 anos"
+            },
+            {
+                id: 14,
+                title: "Samba de Raiz",
+                location: "Teatro Gamboa Nova - Salvador, BA",
+                date: "Sábado, 19 de agosto às 20:00",
+                image: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 50,
+                category: "Música",
+                duration: "2h",
+                ageRating: "Livre"
+            },
+            {
+                id: 15,
+                title: "Forró Pé de Serra",
+                location: "Teatro SESC Pelourinho - Salvador, BA",
+                date: "Domingo, 20 de agosto às 18:00",
+                image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 40,
+                category: "Música",
+                duration: "2h30min",
+                ageRating: "Livre"
+            },
+            
+            // Performance
+            {
+                id: 16,
+                title: "Performance: Corpos Queer",
+                location: "Galeria de Arte Contemporânea - Salvador, BA",
+                date: "Sábado, 26 de agosto às 19:00",
+                image: "https://images.unsplash.com/photo-1501084817091-a4f3d1d19e07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 40,
+                category: "Performance",
+                duration: "1h20min",
+                ageRating: "18 anos"
+            },
+            {
+                id: 17,
+                title: "Drag Show: Rainhas da Bahia",
+                location: "Casa da Música - Salvador, BA",
+                date: "Sexta, 1 de setembro às 22:00",
+                image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 35,
+                category: "Performance",
+                duration: "2h",
+                ageRating: "16 anos"
+            },
+            {
+                id: 18,
+                title: "Teatro de Rua: Manifestações Urbanas",
+                location: "Pelourinho - Salvador, BA",
+                date: "Domingo, 3 de setembro às 16:00",
+                image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 0,
+                category: "Performance",
+                duration: "1h30min",
+                ageRating: "Livre"
+            },
+            
+            // Teatro Adulto
+            {
+                id: 19,
+                title: "O Mistério de Irma Vap",
+                location: "Teatro ICBA - Salvador, BA",
+                date: "Sábado, 9 de setembro às 21:00",
+                image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 70,
+                category: "Teatro Adulto",
+                duration: "1h40min",
+                ageRating: "18 anos"
+            },
+            {
+                id: 20,
+                title: "Entre Quatro Paredes",
+                location: "Teatro Vila Velha - Salvador, BA",
+                date: "Sexta, 15 de setembro às 20:30",
+                image: "https://images.unsplash.com/photo-1549144511-78ee39f5c993?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 65,
+                category: "Teatro Adulto",
+                duration: "1h50min",
+                ageRating: "18 anos"
+            },
+            {
+                id: 21,
+                title: "Amor em Tempos de Tinder",
+                location: "Teatro Gamboa Nova - Salvador, BA",
+                date: "Sábado, 16 de setembro às 21:00",
+                image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 55,
+                category: "Teatro Adulto",
+                duration: "1h30min",
+                ageRating: "16 anos"
+            },
+            
+            // Música e Poesia
+            {
+                id: 22,
+                title: "Cordel do Fogo Encantado",
+                location: "Teatro SESC Pelourinho - Salvador, BA",
+                date: "Domingo, 24 de setembro às 19:00",
+                image: "https://images.unsplash.com/photo-1501084817091-a4f3d1d19e07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 60,
+                category: "Música e Poesia",
+                duration: "1h45min",
+                ageRating: "12 anos"
+            },
+            {
+                id: 23,
+                title: "Sarau Poético: Vozes Periféricas",
+                location: "Casa da Cultura - Salvador, BA",
+                date: "Sábado, 30 de setembro às 18:00",
+                image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 30,
+                category: "Música e Poesia",
+                duration: "2h",
+                ageRating: "14 anos"
+            },
+            {
+                id: 24,
+                title: "Poesia e Música com Elisa Lucinda",
+                location: "Teatro Castro Alves - Salvador, BA",
+                date: "Sexta, 6 de outubro às 20:00",
+                image: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 90,
+                category: "Música e Poesia",
+                duration: "2h",
+                ageRating: "14 anos"
+            }
+        ];
+
+        // Configuração de paginação
+        const eventsPerPage = 12;
+        let currentPage = 1;
+
+        // Função para renderizar os eventos na página atual
+        function renderEvents() {
+            const container = document.getElementById('events-container');
+            container.innerHTML = '';
+
+            // Calcular índices dos eventos para a página atual
+            const startIndex = (currentPage - 1) * eventsPerPage;
+            const endIndex = startIndex + eventsPerPage;
+            const eventsToRender = performances.slice(startIndex, endIndex);
+
+            eventsToRender.forEach(event => {
+                const priceText = event.price === 0 ? 'Gratuito' : `R$ ${event.price}`;
+
+                const eventCard = document.createElement('div');
+                eventCard.className = 'event-card';
+                eventCard.innerHTML = `
+                    <img src="${event.image}" alt="${event.title}" class="event-banner">
+                    <div class="event-content">
+                        <h3 class="event-title">${event.title}</h3>
+                        <div class="event-category">${event.category}</div>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>${event.location}</span>
+                        </div>
+                        <div class="event-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>${event.date}</span>
+                        </div>
+                        <div class="event-info">
+                            <span class="duration"><i class="far fa-clock"></i> ${event.duration}</span>
+                            <span class="age-rating"><i class="fas fa-user"></i> ${event.ageRating}</span>
+                        </div>
+                        <div class="event-price">${priceText}</div>
+                    </div>
+                `;
+
+                eventCard.addEventListener('click', () => {
+                    alert(`Detalhes do evento: ${event.title}\nLocal: ${event.location}\nData: ${event.date}\nPreço: ${priceText}`);
+                });
+
+                container.appendChild(eventCard);
+            });
+
+            renderPagination();
+        }
+
+        // Função para renderizar a paginação
+        function renderPagination() {
+            const paginationContainer = document.getElementById('pagination-container');
+            paginationContainer.innerHTML = '';
+
+            const totalPages = Math.ceil(performances.length / eventsPerPage);
+
+            // Botão Anterior
+            const prevButton = document.createElement('button');
+            prevButton.className = 'pagination-btn';
+            prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            prevButton.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderEvents();
+                }
+            });
+            if (currentPage === 1) prevButton.classList.add('disabled');
+            paginationContainer.appendChild(prevButton);
+
+            // Botões de página
+            for (let i = 1; i <= totalPages; i++) {
+                const pageButton = document.createElement('button');
+                pageButton.className = 'pagination-btn';
+                pageButton.textContent = i;
+                if (i === currentPage) pageButton.classList.add('active');
+                
+                pageButton.addEventListener('click', () => {
+                    currentPage = i;
+                    renderEvents();
+                });
+                
+                paginationContainer.appendChild(pageButton);
+            }
+
+            // Botão Próximo
+            const nextButton = document.createElement('button');
+            nextButton.className = 'pagination-btn';
+            nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            nextButton.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderEvents();
+                }
+            });
+            if (currentPage === totalPages) nextButton.classList.add('disabled');
+            paginationContainer.appendChild(nextButton);
+        }
+
+        // Função para filtrar eventos
+        function filterPerformances() {
+            const dateFilter = document.getElementById('date-filter').value;
+            const priceFilter = document.getElementById('price-filter').value;
+            const categoryFilter = document.getElementById('category-filter').value;
+
+            let filteredPerformances = [...performances];
+
+            // Filtro por categoria
+            if (categoryFilter !== 'all') {
+                filteredPerformances = filteredPerformances.filter(
+                    perf => perf.category === categoryFilter
+                );
+            }
+
+            // Filtro por preço
+            if (priceFilter !== 'all') {
+                if (priceFilter === 'free') {
+                    filteredPerformances = filteredPerformances.filter(perf => perf.price === 0);
+                } else {
+                    const maxPrice = parseInt(priceFilter);
+                    filteredPerformances = filteredPerformances.filter(perf => perf.price <= maxPrice);
+                }
+            }
+
+            // Filtro por data (simulado)
+            if (dateFilter !== 'all') {
+                filteredPerformances = filteredPerformances.filter((_, index) => index < 10);
+            }
+
+            // Atualizar a lista de eventos e resetar paginação
+            performances.length = 0;
+            performances.push(...filteredPerformances);
+            currentPage = 1;
+            renderEvents();
+        }
+
+        // Função para preencher opções de categoria
+        function populateCategoryFilters() {
+            const categorySelect = document.getElementById('category-filter');
+
+            const categories = [...new Set(performances.map(perf => perf.category))];
+            
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                categorySelect.appendChild(option);
+            });
+        }
+
+        // Inicialização da página
+        document.addEventListener('DOMContentLoaded', () => {
+            // Preencher categorias
+            populateCategoryFilters();
+            
+            // Renderizar eventos
+            renderEvents();
+            
+            // Filtros
+            document.querySelector('.btn-apply').addEventListener('click', filterPerformances);
+            document.querySelector('.btn-reset').addEventListener('click', () => {
+                document.getElementById('date-filter').value = 'all';
+                document.getElementById('price-filter').value = 'all';
+                document.getElementById('category-filter').value = 'all';
+                
+                // Resetar para todos os eventos
+                performances.length = 0;
+                performances.push(...originalEvents);
+                currentPage = 1;
+                renderEvents();
+            });
+
+            // Busca
+            document.querySelector('.search-bar input').addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') {
+                    const searchTerm = e.target.value.toLowerCase().trim();
+                    if (searchTerm === '') {
+                        performances.length = 0;
+                        performances.push(...originalEvents);
+                        renderEvents();
+                        return;
+                    }
+                    
+                    const filtered = performances.filter(perf =>
+                        perf.title.toLowerCase().includes(searchTerm) ||
+                        perf.location.toLowerCase().includes(searchTerm) ||
+                        perf.category.toLowerCase().includes(searchTerm)
+                    );
+                    
+                    performances.length = 0;
+                    performances.push(...filtered);
+                    currentPage = 1;
+                    renderEvents();
+                }
+            });
+        });
+
+        // Salvar cópia original dos eventos para reset
+        const originalEvents = [...performances];
+    </script>
+</body>
+</html>
