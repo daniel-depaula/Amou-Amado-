@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Evento com Navegação | Amou, Amado?</title>
     <link rel="stylesheet" href="criacaoevento.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -17,7 +19,7 @@
                     <img src="imagens/logo.png" alt="Logo Amou, Amado?" class="main-logo">
                 </a>
             </div>
-            
+
             <div class="search-bar">
                 <input type="text" placeholder="Pesquisar eventos, artistas, locais..." aria-label="Campo de pesquisa">
                 <i class="fas fa-search search-icon"></i>
@@ -25,22 +27,22 @@
         </div>
 
         <div class="header-actions">
-            <button class="header-btn btn-create active">
+            <a href="criacaoevento.html" class="header-btn btn-create active">
                 <i class="fas fa-plus-circle"></i> <span class="btn-text">Criar Evento</span>
-            </button>
-            <button class="header-btn btn-events">
+            </a>
+            <a href="eventos.html" class="header-btn btn-events">
                 <i class="fas fa-calendar-check"></i> <span class="btn-text">Meus Eventos</span>
-            </button>
-            <button class="header-btn btn-profile">
+            </a>
+            <a href="perfilcriador.html" class="header-btn btn-profile">
                 <i class="fas fa-user-circle"></i> <span class="btn-text">Perfil</span>
-            </button>
+            </a>
         </div>
     </header>
 
     <!-- Conteúdo Principal - Criação de Evento -->
     <main class="container create-event-container">
         <h1 class="page-title">Criar Novo Evento</h1>
-        
+
         <div class="creation-steps">
             <button class="step active" data-target="basic-info">Informações Básicas</button>
             <button class="step" data-target="description">Descrição</button>
@@ -49,19 +51,20 @@
             <button class="step" data-target="images">Imagens</button>
             <button class="step" data-target="policies">Finalizar</button>
         </div>
-        
+
         <form id="event-creation-form">
             <div class="form-container">
                 <!-- Seção 1: Informações Básicas -->
                 <div class="form-section" id="basic-info">
                     <h2 class="section-title">Informações Básicas</h2>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="event-title">Título do Evento <span class="required">*</span></label>
-                            <input type="text" id="event-title" class="form-control" placeholder="Ex: Festival de Verão Salvador" required>
+                            <input type="text" id="event-title" class="form-control"
+                                placeholder="Ex: Festival de Verão Salvador" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="event-category">Categoria <span class="required">*</span></label>
                             <select id="event-category" class="form-control" required>
@@ -76,18 +79,18 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="event-date">Data <span class="required">*</span></label>
                             <input type="date" id="event-date" class="form-control" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="event-time">Horário <span class="required">*</span></label>
                             <input type="time" id="event-time" class="form-control" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="event-duration">Duração</label>
                             <div class="input-icon">
@@ -96,7 +99,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="event-rating">Classificação Etária</label>
@@ -110,7 +113,7 @@
                                 <option value="18">18 anos</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="event-capacity">Capacidade Máxima</label>
                             <div class="input-icon">
@@ -121,59 +124,66 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Seção 2: Descrição -->
                 <div class="form-section" id="description">
                     <h2 class="section-title">Descrição</h2>
-                    
+
                     <div class="form-group">
                         <label for="event-description">Descrição do Evento <span class="required">*</span></label>
-                        <textarea id="event-description" class="form-control" placeholder="Descreva detalhadamente seu evento..." required></textarea>
+                        <textarea id="event-description" class="form-control"
+                            placeholder="Descreva detalhadamente seu evento..." required></textarea>
                         <p class="hint">Inclua informações relevantes sobre o evento, atrações, programação, etc.</p>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="event-highlights">Destaques</label>
-                        <textarea id="event-highlights" class="form-control" placeholder="Liste os destaques do evento, um por linha..."></textarea>
-                        <p class="hint">Ex: Espaço gastronômico com comidas típicas, Área VIP, Estacionamento gratuito</p>
+                        <textarea id="event-highlights" class="form-control"
+                            placeholder="Liste os destaques do evento, um por linha..."></textarea>
+                        <p class="hint">Ex: Espaço gastronômico com comidas típicas, Área VIP, Estacionamento gratuito
+                        </p>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="event-artists">Artistas/Participantes</label>
-                        <textarea id="event-artists" class="form-control" placeholder="Liste os artistas ou participantes confirmados, um por linha..."></textarea>
+                        <textarea id="event-artists" class="form-control"
+                            placeholder="Liste os artistas ou participantes confirmados, um por linha..."></textarea>
                         <p class="hint">Ex: Ivete Sangalo, Claudia Leitte, Banda Eva</p>
                     </div>
                 </div>
-                
+
                 <!-- Seção 3: Localização -->
                 <div class="form-section" id="location">
                     <h2 class="section-title">Localização</h2>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="event-location-name">Nome do Local <span class="required">*</span></label>
-                            <input type="text" id="event-location-name" class="form-control" placeholder="Ex: Casa de Show Maria" required>
+                            <input type="text" id="event-location-name" class="form-control"
+                                placeholder="Ex: Casa de Show Maria" required>
                         </div>
                     </div>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="event-address">Endereço <span class="required">*</span></label>
-                            <input type="text" id="event-address" class="form-control" placeholder="Ex: Rua das Flores, 123" required>
+                            <input type="text" id="event-address" class="form-control"
+                                placeholder="Ex: Rua das Flores, 123" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="event-neighborhood">Bairro <span class="required">*</span></label>
-                            <input type="text" id="event-neighborhood" class="form-control" placeholder="Ex: Barra" required>
+                            <input type="text" id="event-neighborhood" class="form-control" placeholder="Ex: Barra"
+                                required>
                         </div>
                     </div>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="event-city">Cidade <span class="required">*</span></label>
                             <input type="text" id="event-city" class="form-control" placeholder="Ex: Salvador" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="event-state">Estado <span class="required">*</span></label>
                             <select id="event-state" class="form-control" required>
@@ -184,81 +194,85 @@
                                 <!-- outros estados -->
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="event-zipcode">CEP</label>
                             <input type="text" id="event-zipcode" class="form-control" placeholder="Ex: 40000-000">
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Seção 4: Ingressos -->
                 <div class="form-section" id="tickets">
                     <h2 class="section-title">Ingressos</h2>
-                    
+
                     <div id="ticket-container">
                         <div class="price-item">
                             <button class="remove-btn" type="button">
                                 <i class="fas fa-times-circle"></i>
                             </button>
-                            
+
                             <div class="form-group">
                                 <label>Nome do Ingresso</label>
-                                <input type="text" class="form-control" placeholder="Ex: Pista Comum" value="Pista Comum">
+                                <input type="text" class="form-control" placeholder="Ex: Pista Comum"
+                                    value="Pista Comum">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label>Preço (R$)</label>
-                                <input type="number" class="form-control" placeholder="0.00" min="0" step="0.01" value="80.00">
+                                <input type="number" class="form-control" placeholder="0.00" min="0" step="0.01"
+                                    value="80.00">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label>Quantidade</label>
                                 <input type="number" class="form-control" placeholder="Ilimitado" min="0" value="300">
                             </div>
                         </div>
-                        
+
                         <div class="price-item">
                             <button class="remove-btn" type="button">
                                 <i class="fas fa-times-circle"></i>
                             </button>
-                            
+
                             <div class="form-group">
                                 <label>Nome do Ingresso</label>
-                                <input type="text" class="form-control" placeholder="Ex: Pista Premium" value="Pista Premium">
+                                <input type="text" class="form-control" placeholder="Ex: Pista Premium"
+                                    value="Pista Premium">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label>Preço (R$)</label>
-                                <input type="number" class="form-control" placeholder="0.00" min="0" step="0.01" value="150.00">
+                                <input type="number" class="form-control" placeholder="0.00" min="0" step="0.01"
+                                    value="150.00">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label>Quantidade</label>
                                 <input type="number" class="form-control" placeholder="Ilimitado" min="0" value="150">
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="add-item" id="add-ticket">
                         <i class="fas fa-plus-circle"></i>
                         <span>Adicionar outro tipo de ingresso</span>
                     </div>
-                    
+
                     <div class="checkbox-group">
                         <input type="checkbox" id="half-price" checked>
                         <label for="half-price">Aceitar meia-entrada para estudantes e idosos</label>
                     </div>
                 </div>
-                
+
                 <!-- Seção 5: Imagens -->
                 <div class="form-section" id="images">
                     <h2 class="section-title">Imagens</h2>
-                    
+
                     <div class="form-group">
                         <label>Imagem Principal <span class="required">*</span></label>
                         <p class="hint">Esta será a imagem principal exibida para seu evento</p>
-                        
+
                         <div class="image-upload-container">
                             <div class="image-upload">
                                 <i class="fas fa-cloud-upload-alt"></i>
@@ -267,61 +281,65 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label>Galeria de Fotos</label>
                         <p class="hint">Adicione até 6 fotos para mostrar mais detalhes do seu evento</p>
-                        
+
                         <div class="image-upload-container">
                             <div class="image-upload">
                                 <i class="fas fa-images"></i>
                                 <span>Adicionar foto à galeria</span>
                                 <input type="file" accept="image/*" id="gallery-image" multiple>
                             </div>
-                            
+
                             <!-- Espaço para imagens carregadas -->
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Seção 6: Políticas e Contato -->
                 <div class="form-section" id="policies">
                     <h2 class="section-title">Políticas e Contato</h2>
-                    
+
                     <div class="form-group">
                         <label for="event-policies">Políticas do Evento</label>
-                        <textarea id="event-policies" class="form-control" placeholder="Ex: Proibida a entrada com alimentos e bebidas, Estacionamento: R$ 20,00..."></textarea>
+                        <textarea id="event-policies" class="form-control"
+                            placeholder="Ex: Proibida a entrada com alimentos e bebidas, Estacionamento: R$ 20,00..."></textarea>
                         <p class="hint">Liste as políticas importantes, uma por linha</p>
                     </div>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="event-contact-phone">Telefone para Contato</label>
                             <div class="input-icon">
                                 <i class="fas fa-phone"></i>
-                                <input type="tel" id="event-contact-phone" class="form-control" placeholder="(71) 99999-9999">
+                                <input type="tel" id="event-contact-phone" class="form-control"
+                                    placeholder="(71) 99999-9999">
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="event-contact-email">E-mail para Contato</label>
                             <div class="input-icon">
                                 <i class="fas fa-envelope"></i>
-                                <input type="email" id="event-contact-email" class="form-control" placeholder="contato@evento.com">
+                                <input type="email" id="event-contact-email" class="form-control"
+                                    placeholder="contato@evento.com">
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="event-contact-website">Website</label>
                             <div class="input-icon">
                                 <i class="fas fa-globe"></i>
-                                <input type="url" id="event-contact-website" class="form-control" placeholder="https://www.meuevento.com">
+                                <input type="url" id="event-contact-website" class="form-control"
+                                    placeholder="https://www.meuevento.com">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="form-actions">
                 <button type="button" class="btn btn-preview">
                     <i class="fas fa-eye"></i> Visualizar Evento
@@ -335,13 +353,14 @@
             </div>
         </form>
     </main>
-    
+
     <!-- Rodapé -->
     <footer>
         <div class="container footer-content">
             <div class="footer-section">
                 <h3>Sobre Nós</h3>
-                <p>A Amou,Amado? é uma plataforma que buscar dar visibilidade para os eventos culturais e educativos feitos por e para o público LGBTQIA+ de Salvador.</p>
+                <p>A Amou,Amado? é uma plataforma que buscar dar visibilidade para os eventos culturais e educativos
+                    feitos por e para o público LGBTQIA+ de Salvador.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -349,7 +368,7 @@
                     <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Links Rápidos</h3>
                 <ul class="footer-links">
@@ -360,7 +379,7 @@
                     <li><a href="#">Promoções</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Contato</h3>
                 <ul class="footer-links">
@@ -370,29 +389,29 @@
                 </ul>
             </div>
         </div>
-        
+
         <div class="copyright container">
             <p>&copy; 2023 ShowTime. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Configuração dos botões do header
             document.querySelector('.btn-create').addEventListener('click', () => {
                 alert('Você já está na página de criação de evento');
             });
-            
+
             document.querySelector('.btn-events').addEventListener('click', () => {
                 alert('Redirecionando para Meus Eventos');
             });
-            
+
             document.querySelector('.btn-profile').addEventListener('click', () => {
                 alert('Redirecionando para o Perfil');
             });
-            
+
             // Adicionar novo tipo de ingresso
-            document.getElementById('add-ticket').addEventListener('click', function() {
+            document.getElementById('add-ticket').addEventListener('click', function () {
                 const ticketContainer = document.getElementById('ticket-container');
                 const newTicket = document.createElement('div');
                 newTicket.className = 'price-item';
@@ -416,11 +435,11 @@
                         <input type="number" class="form-control" placeholder="Ilimitado" min="0">
                     </div>
                 `;
-                
+
                 ticketContainer.appendChild(newTicket);
-                
+
                 // Adicionar evento de remoção ao novo botão
-                newTicket.querySelector('.remove-btn').addEventListener('click', function() {
+                newTicket.querySelector('.remove-btn').addEventListener('click', function () {
                     if (ticketContainer.children.length > 1) {
                         ticketContainer.removeChild(newTicket);
                     } else {
@@ -428,10 +447,10 @@
                     }
                 });
             });
-            
+
             // Adicionar eventos de remoção aos ingressos existentes
             document.querySelectorAll('.price-item .remove-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     const ticketContainer = document.getElementById('ticket-container');
                     if (ticketContainer.children.length > 1) {
                         ticketContainer.removeChild(this.parentElement);
@@ -440,23 +459,23 @@
                     }
                 });
             });
-            
+
             // Simulação de upload de imagem
-            document.getElementById('main-image').addEventListener('change', function(e) {
+            document.getElementById('main-image').addEventListener('change', function (e) {
                 if (e.target.files && e.target.files[0]) {
                     const container = this.parentElement.parentElement;
                     container.innerHTML = '';
-                    
+
                     const uploaded = document.createElement('div');
                     uploaded.className = 'uploaded-image';
-                    
+
                     const img = document.createElement('img');
                     img.src = URL.createObjectURL(e.target.files[0]);
-                    
+
                     const removeBtn = document.createElement('button');
                     removeBtn.className = 'remove-img';
                     removeBtn.innerHTML = '<i class="fas fa-times"></i>';
-                    removeBtn.addEventListener('click', function() {
+                    removeBtn.addEventListener('click', function () {
                         container.parentElement.innerHTML = `
                             <div class="image-upload">
                                 <i class="fas fa-cloud-upload-alt"></i>
@@ -467,34 +486,34 @@
                         // Re-add event listener to the new input
                         document.getElementById('main-image').addEventListener('change', arguments.callee);
                     });
-                    
+
                     uploaded.appendChild(img);
                     uploaded.appendChild(removeBtn);
                     container.appendChild(uploaded);
                 }
             });
-            
+
             // Evento de envio do formulário
-            document.getElementById('event-creation-form').addEventListener('submit', function(e) {
+            document.getElementById('event-creation-form').addEventListener('submit', function (e) {
                 e.preventDefault();
                 alert('Evento criado com sucesso! Redirecionando para a página do evento.');
                 // Aqui iria a lógica real de envio do formulário
             });
-            
+
             // Botão de visualização
-            document.querySelector('.btn-preview').addEventListener('click', function() {
+            document.querySelector('.btn-preview').addEventListener('click', function () {
                 alert('Visualização do evento. Esta funcionalidade mostraria como o evento será exibido para os usuários.');
             });
-            
+
             // Botão de salvar rascunho
-            document.querySelector('.btn-save').addEventListener('click', function() {
+            document.querySelector('.btn-save').addEventListener('click', function () {
                 alert('Rascunho salvo com sucesso! Você pode continuar editando mais tarde.');
             });
-            
+
             // Navegação por seções
             const steps = document.querySelectorAll('.step');
             const sections = document.querySelectorAll('.form-section');
-            
+
             // Função para navegar até uma seção
             function navigateToSection(sectionId) {
                 const targetSection = document.getElementById(sectionId);
@@ -503,39 +522,39 @@
                     sections.forEach(section => {
                         section.classList.remove('active-section');
                     });
-                    
+
                     // Adicionar destaque à seção alvo
                     targetSection.classList.add('active-section');
-                    
+
                     // Remover destaque de todas as etapas
                     steps.forEach(step => {
                         step.classList.remove('active');
                     });
-                    
+
                     // Destacar a etapa correspondente
                     const activeStep = document.querySelector(`.step[data-target="${sectionId}"]`);
                     if (activeStep) {
                         activeStep.classList.add('active');
                     }
-                    
+
                     // Scroll para a seção
                     targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    
+
                     // Remover o destaque após 1.5 segundos
                     setTimeout(() => {
                         targetSection.classList.remove('active-section');
                     }, 1500);
                 }
             }
-            
+
             // Adicionar evento de clique às etapas
             steps.forEach(step => {
-                step.addEventListener('click', function() {
+                step.addEventListener('click', function () {
                     const target = this.getAttribute('data-target');
                     navigateToSection(target);
                 });
             });
-            
+
             // Observar scroll para atualizar etapas ativas
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
@@ -544,7 +563,7 @@
                         steps.forEach(step => {
                             step.classList.remove('active');
                         });
-                        
+
                         const targetId = entry.target.id;
                         const activeStep = document.querySelector(`.step[data-target="${targetId}"]`);
                         if (activeStep) {
@@ -553,7 +572,7 @@
                     }
                 });
             }, { threshold: 0.5 });
-            
+
             // Observar cada seção
             sections.forEach(section => {
                 observer.observe(section);
@@ -561,4 +580,5 @@
         });
     </script>
 </body>
+
 </html>

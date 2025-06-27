@@ -108,6 +108,7 @@
         }
 
         .header-btn {
+            text-decoration: none;
             display: flex;
             align-items: center;
             padding: 8px 15px;

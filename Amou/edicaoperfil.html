@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Perfil do Organizador</title>
     <link rel="stylesheet" href="edicaoperfil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -17,7 +19,7 @@
                     <img src="https://via.placeholder.com/150x60?text=LOGO" alt="Logo Amou, Amado?" class="main-logo">
                 </a>
             </div>
-            
+
             <div class="search-bar">
                 <input type="text" placeholder="Pesquisar eventos, artistas, locais..." aria-label="Campo de pesquisa">
                 <i class="fas fa-search search-icon"></i>
@@ -25,15 +27,15 @@
         </div>
 
         <div class="header-actions">
-            <button class="header-btn btn-create">
+            <a href="criacaoevento.html" class="header-btn btn-create">
                 <i class="fas fa-plus-circle"></i> <span class="btn-text">Criar Evento</span>
-            </button>
-            <button class="header-btn btn-events">
+            </a>
+            <a href="eventos.html" class="header-btn btn-events">
                 <i class="fas fa-calendar-check"></i> <span class="btn-text">Meus Eventos</span>
-            </button>
-            <button class="header-btn btn-profile">
+            </a>
+            <a href="perfilcriador.html" class="header-btn btn-profile">
                 <i class="fas fa-user-circle"></i> <span class="btn-text">Perfil</span>
-            </button>
+            </a>
         </div>
     </header>
 
@@ -41,15 +43,16 @@
     <main class="container">
         <div class="page-header">
             <h1>Editar Perfil do Organizador</h1>
-            <p>Atualize as informações do seu perfil para que os participantes possam conhecer melhor sua organização</p>
+            <p>Atualize as informações do seu perfil para que os participantes possam conhecer melhor sua organização
+            </p>
         </div>
-        
+
         <div class="edit-profile-container">
             <form id="edit-profile-form">
                 <!-- Upload de Fotos -->
                 <div class="form-section">
                     <h2 class="section-title">Fotos</h2>
-                    
+
                     <div class="photo-upload">
                         <div class="upload-group">
                             <div class="upload-preview" id="avatar-preview">
@@ -58,10 +61,11 @@
                                     <p>Nenhuma imagem selecionada</p>
                                 </div>
                             </div>
-                            <button type="button" class="btn-upload" id="avatar-upload">Selecionar Foto de Perfil</button>
+                            <button type="button" class="btn-upload" id="avatar-upload">Selecionar Foto de
+                                Perfil</button>
                             <input type="file" id="avatar-input" accept="image/*" hidden>
                         </div>
-                        
+
                         <div class="upload-group">
                             <div class="upload-preview" id="cover-preview">
                                 <div class="upload-placeholder">
@@ -74,95 +78,103 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Informações Básicas -->
                 <div class="form-section">
                     <h2 class="section-title">Informações Básicas</h2>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label" for="name">Nome do Organizador</label>
-                            <input type="text" id="name" class="form-control" placeholder="Digite o nome do organizador" value="Festival Produções">
+                            <input type="text" id="name" class="form-control" placeholder="Digite o nome do organizador"
+                                value="Festival Produções">
                         </div>
-                        
+
                         <div class="form-group">
                             <label class="form-label" for="location">Localização</label>
-                            <input type="text" id="location" class="form-control" placeholder="Cidade, Estado" value="Salvador, BA">
+                            <input type="text" id="location" class="form-control" placeholder="Cidade, Estado"
+                                value="Salvador, BA">
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label class="form-label" for="since">Membro Desde</label>
                         <input type="month" id="since" class="form-control" value="2020-01">
                     </div>
                 </div>
-                
+
                 <!-- Biografia -->
                 <div class="form-section">
                     <h2 class="section-title">Biografia</h2>
-                    
+
                     <div class="form-group">
                         <label class="form-label" for="bio">Sobre Você</label>
-                        <textarea id="bio" class="form-control" placeholder="Conte um pouco sobre você ou sua organização">A Festival Produções é uma empresa especializada em organização de eventos musicais de grande porte na região Nordeste. Com mais de 10 anos de experiência, já trouxemos para Salvador os maiores nomes da música brasileira e internacional, sempre com excelência em produção e atendimento ao público.</textarea>
+                        <textarea id="bio" class="form-control"
+                            placeholder="Conte um pouco sobre você ou sua organização">A Festival Produções é uma empresa especializada em organização de eventos musicais de grande porte na região Nordeste. Com mais de 10 anos de experiência, já trouxemos para Salvador os maiores nomes da música brasileira e internacional, sempre com excelência em produção e atendimento ao público.</textarea>
                     </div>
                 </div>
-                
+
                 <!-- Contato -->
                 <div class="form-section">
                     <h2 class="section-title">Informações de Contato</h2>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label" for="email">Email</label>
-                            <input type="email" id="email" class="form-control" placeholder="Digite seu email" value="contato@festivalproducoes.com.br">
+                            <input type="email" id="email" class="form-control" placeholder="Digite seu email"
+                                value="contato@festivalproducoes.com.br">
                         </div>
-                        
+
                         <div class="form-group">
                             <label class="form-label" for="phone">Telefone</label>
-                            <input type="tel" id="phone" class="form-control" placeholder="(00) 00000-0000" value="(71) 99999-9999">
+                            <input type="tel" id="phone" class="form-control" placeholder="(00) 00000-0000"
+                                value="(71) 99999-9999">
                         </div>
                     </div>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label" for="website">Website</label>
-                            <input type="url" id="website" class="form-control" placeholder="https://exemplo.com" value="www.festivalproducoes.com.br">
+                            <input type="url" id="website" class="form-control" placeholder="https://exemplo.com"
+                                value="www.festivalproducoes.com.br">
                         </div>
-                        
+
                         <div class="form-group">
                             <label class="form-label" for="events">Eventos Realizados</label>
                             <input type="number" id="events" class="form-control" min="0" value="24">
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Redes Sociais -->
                 <div class="form-section">
                     <h2 class="section-title">Redes Sociais</h2>
-                    
+
                     <div class="social-media-grid">
                         <div class="social-input">
                             <i class="fab fa-instagram"></i>
-                            <input type="text" id="instagram" class="form-control" placeholder="@seuinstagram" value="@festivalproducoes">
+                            <input type="text" id="instagram" class="form-control" placeholder="@seuinstagram"
+                                value="@festivalproducoes">
                         </div>
-                        
+
                         <div class="social-input">
                             <i class="fab fa-facebook"></i>
                             <input type="text" id="facebook" class="form-control" placeholder="facebook.com/seuperfil">
                         </div>
-                        
+
                         <div class="social-input">
                             <i class="fab fa-twitter"></i>
                             <input type="text" id="twitter" class="form-control" placeholder="@seutwitter">
                         </div>
-                        
+
                         <div class="social-input">
                             <i class="fab fa-linkedin"></i>
-                            <input type="text" id="linkedin" class="form-control" placeholder="linkedin.com/in/seuperfil">
+                            <input type="text" id="linkedin" class="form-control"
+                                placeholder="linkedin.com/in/seuperfil">
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- GALERIA DE FOTOS -->
                 <div class="form-section gallery-section">
                     <div class="gallery-header">
@@ -171,22 +183,25 @@
                             <i class="fas fa-plus"></i> Adicionar Fotos
                         </button>
                     </div>
-                    
+
                     <div class="gallery-container" id="gallery-container">
                         <!-- Fotos da galeria serão adicionadas aqui -->
                         <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80" alt="Foto da galeria">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80"
+                                alt="Foto da galeria">
                             <div class="delete-btn"><i class="fas fa-times"></i></div>
                         </div>
                         <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80" alt="Foto da galeria">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80"
+                                alt="Foto da galeria">
                             <div class="delete-btn"><i class="fas fa-times"></i></div>
                         </div>
                         <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80" alt="Foto da galeria">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80"
+                                alt="Foto da galeria">
                             <div class="delete-btn"><i class="fas fa-times"></i></div>
                         </div>
-                        
+
                         <!-- Área para adicionar novas fotos -->
                         <div class="add-gallery-photos" id="add-gallery">
                             <i class="fas fa-images"></i>
@@ -196,7 +211,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Botões de Ação -->
                 <div class="action-buttons">
                     <button type="button" class="btn btn-secondary">Cancelar</button>
@@ -205,13 +220,14 @@
             </form>
         </div>
     </main>
-    
+
     <!-- Rodapé -->
     <footer>
         <div class="container footer-content">
             <div class="footer-section">
                 <h3>Sobre Nós</h3>
-                <p>A Amou,Amado? é uma plataforma que buscar dar visibilidade para os eventos culturais e educativos feitos por e para o público LGBTQIA+ de Salvador.</p>
+                <p>A Amou,Amado? é uma plataforma que buscar dar visibilidade para os eventos culturais e educativos
+                    feitos por e para o público LGBTQIA+ de Salvador.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -219,7 +235,7 @@
                     <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Links Rápidos</h3>
                 <ul class="footer-links">
@@ -230,7 +246,7 @@
                     <li><a href="#">Promoções</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Contato</h3>
                 <ul class="footer-links">
@@ -240,23 +256,23 @@
                 </ul>
             </div>
         </div>
-        
+
         <div class="copyright container">
             <p>&copy; 2023 ShowTime. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Avatar Upload
             const avatarUpload = document.getElementById('avatar-upload');
             const avatarInput = document.getElementById('avatar-input');
             const avatarPreview = document.getElementById('avatar-preview');
-            
+
             avatarUpload.addEventListener('click', () => {
                 avatarInput.click();
             });
-            
+
             avatarInput.addEventListener('change', (e) => {
                 const file = e.target.files[0];
                 if (file) {
@@ -267,16 +283,16 @@
                     reader.readAsDataURL(file);
                 }
             });
-            
+
             // Cover Upload
             const coverUpload = document.getElementById('cover-upload');
             const coverInput = document.getElementById('cover-input');
             const coverPreview = document.getElementById('cover-preview');
-            
+
             coverUpload.addEventListener('click', () => {
                 coverInput.click();
             });
-            
+
             coverInput.addEventListener('change', (e) => {
                 const file = e.target.files[0];
                 if (file) {
@@ -287,23 +303,23 @@
                     reader.readAsDataURL(file);
                 }
             });
-            
+
             // Galeria de Fotos
             const galleryInput = document.getElementById('gallery-input');
             const addGalleryBtn = document.getElementById('add-gallery');
             const galleryContainer = document.getElementById('gallery-container');
-            
+
             addGalleryBtn.addEventListener('click', () => {
                 galleryInput.click();
             });
-            
+
             galleryInput.addEventListener('change', (e) => {
                 const files = e.target.files;
                 if (files.length > 0) {
                     for (let i = 0; i < files.length; i++) {
                         const file = files[i];
                         const reader = new FileReader();
-                        
+
                         reader.onload = (e) => {
                             const galleryItem = document.createElement('div');
                             galleryItem.className = 'gallery-item';
@@ -311,41 +327,41 @@
                                 <img src="${e.target.result}" alt="Nova foto da galeria">
                                 <div class="delete-btn"><i class="fas fa-times"></i></div>
                             `;
-                            
+
                             // Adiciona antes do botão de adicionar
                             galleryContainer.insertBefore(galleryItem, addGalleryBtn);
-                            
+
                             // Adiciona evento para remover a foto
                             galleryItem.querySelector('.delete-btn').addEventListener('click', () => {
                                 galleryItem.remove();
                             });
                         };
-                        
+
                         reader.readAsDataURL(file);
                     }
                 }
             });
-            
+
             // Remover fotos existentes
             document.querySelectorAll('.gallery-item .delete-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     this.parentElement.remove();
                 });
             });
-            
+
             // Form Submission
             const form = document.getElementById('edit-profile-form');
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
-                
+
                 // Simulação de salvamento
                 const name = document.getElementById('name').value;
                 alert(`Perfil "${name}" salvo com sucesso!`);
-                
+
                 // Aqui normalmente você enviaria os dados para o servidor
                 // window.location.href = 'perfil.html'; // Redirecionar para o perfil
             });
-            
+
             // Botão Cancelar
             document.querySelector('.btn-secondary').addEventListener('click', () => {
                 if (confirm('Tem certeza que deseja cancelar? Todas as alterações não salvas serão perdidas.')) {
@@ -355,4 +371,5 @@
         });
     </script>
 </body>
+
 </html>

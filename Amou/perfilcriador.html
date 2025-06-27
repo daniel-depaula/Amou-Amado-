@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil do Organizador</title>
     <link rel="stylesheet" href="perfilcriador.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   
+
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -17,7 +19,7 @@
                     <img src="imagens/logo.png" alt="Logo Amou, Amado?" class="main-logo">
                 </a>
             </div>
-            
+
             <div class="search-bar">
                 <input type="text" placeholder="Pesquisar eventos, artistas, locais..." aria-label="Campo de pesquisa">
                 <i class="fas fa-search search-icon"></i>
@@ -25,15 +27,15 @@
         </div>
 
         <div class="header-actions">
-            <button class="header-btn btn-create">
+            <a href="criacaoevento.html" class="header-btn btn-create">
                 <i class="fas fa-plus-circle"></i> <span class="btn-text">Criar Evento</span>
-            </button>
-            <button class="header-btn btn-events">
+            </a>
+            <a href="eventos.html" class="header-btn btn-events">
                 <i class="fas fa-calendar-check"></i> <span class="btn-text">Meus Eventos</span>
-            </button>
-            <button class="header-btn btn-profile">
-                <i class="fas fa-user-circle"></i> <span class="btn-text">Perfil</span>
-            </button>
+            </a>
+            <a href="edicaoperfil.html" class="header-btn btn-profile">
+                <i class="fas fa-user-circle"></i> <span class="btn-text">Editar Perfil</span>
+            </a>
         </div>
     </header>
 
@@ -43,15 +45,18 @@
         <div class="organizer-carousel">
             <div class="carousel-container">
                 <div class="carousel-slide active">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="Foto do Organizador">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80"
+                        alt="Foto do Organizador">
                 </div>
                 <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="Foto do Organizador">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80"
+                        alt="Foto do Organizador">
                 </div>
                 <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="Foto do Organizador">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80"
+                        alt="Foto do Organizador">
                 </div>
-                
+
                 <!-- Botões de Navegação -->
                 <button class="carousel-btn prev-btn">
                     <i class="fas fa-chevron-left"></i>
@@ -64,12 +69,13 @@
 
         <div class="organizer-header">
             <div class="organizer-avatar">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80" alt="Foto do Organizador">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80"
+                    alt="Foto do Organizador">
             </div>
-            
+
             <div class="organizer-info">
                 <h1 class="organizer-name">Festival Produções</h1>
-                
+
                 <div class="organizer-meta">
                     <div class="meta-item">
                         <div class="meta-icon">
@@ -80,7 +86,7 @@
                             <p>Salvador, BA</p>
                         </div>
                     </div>
-                    
+
                     <div class="meta-item">
                         <div class="meta-icon">
                             <i class="fas fa-calendar-alt"></i>
@@ -90,7 +96,7 @@
                             <p>Janeiro 2020</p>
                         </div>
                     </div>
-                    
+
                     <div class="meta-item">
                         <div class="meta-icon">
                             <i class="fas fa-ticket-alt"></i>
@@ -101,12 +107,15 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="organizer-bio">
                     <h2 class="section-title">Sobre</h2>
-                    <p>A Festival Produções é uma empresa especializada em organização de eventos musicais de grande porte na região Nordeste. Com mais de 10 anos de experiência, já trouxemos para Salvador os maiores nomes da música brasileira e internacional, sempre com excelência em produção e atendimento ao público.</p>
+                    <p>A Festival Produções é uma empresa especializada em organização de eventos musicais de grande
+                        porte na região Nordeste. Com mais de 10 anos de experiência, já trouxemos para Salvador os
+                        maiores nomes da música brasileira e internacional, sempre com excelência em produção e
+                        atendimento ao público.</p>
                 </div>
-                
+
                 <div class="organizer-contact">
                     <h2 class="section-title">Contato</h2>
                     <ul class="contact-list">
@@ -118,18 +127,18 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- NOVA SEÇÃO DA GALERIA -->
         <div class="organizer-gallery">
             <div class="section-header">
                 <h2 class="section-title">Galeria de Fotos</h2>
             </div>
-            
+
             <div class="gallery-container" id="gallery-container">
                 <!-- Miniaturas serão adicionadas dinamicamente via JS -->
             </div>
         </div>
-        
+
         <!-- SEÇÃO EVENTOS ORGANIZADOS -->
         <div class="organizer-events">
             <div class="section-header">
@@ -138,7 +147,7 @@
                     Ver mais <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
-            
+
             <div class="events-horizontal">
                 <div class="events-container" id="events-grid">
                     <!-- Eventos serão carregados via JavaScript -->
@@ -152,13 +161,14 @@
             </div>
         </div>
     </main>
-    
+
     <!-- Rodapé -->
     <footer>
         <div class="container footer-content">
             <div class="footer-section">
                 <h3>Sobre Nós</h3>
-                <p>A Amou,Amado? é uma plataforma que buscar dar visibilidade para os eventos culturais e educativos feitos por e para o público LGBTQIA+ de Salvador.</p>
+                <p>A Amou,Amado? é uma plataforma que buscar dar visibilidade para os eventos culturais e educativos
+                    feitos por e para o público LGBTQIA+ de Salvador.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -166,7 +176,7 @@
                     <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Links Rápidos</h3>
                 <ul class="footer-links">
@@ -177,7 +187,7 @@
                     <li><a href="#">Promoções</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Contato</h3>
                 <ul class="footer-links">
@@ -187,7 +197,7 @@
                 </ul>
             </div>
         </div>
-        
+
         <div class="copyright container">
             <p>&copy; 2023 ShowTime. Todos os direitos reservados.</p>
         </div>
@@ -217,14 +227,14 @@
             const params = {};
             const queryString = window.location.search.substring(1);
             const pairs = queryString.split('&');
-            
+
             pairs.forEach(pair => {
                 const [key, value] = pair.split('=');
                 if (key) {
                     params[key] = decodeURIComponent(value || '');
                 }
             });
-            
+
             return params;
         }
 
@@ -307,32 +317,32 @@
             const params = getUrlParams();
             const organizerId = params.id || '123';
             const organizer = organizers[organizerId];
-            
+
             if (!organizer) {
                 document.querySelector('.organizer-name').textContent = "Organizador não encontrado";
                 return;
             }
-            
+
             // Preencher dados do organizador
             document.querySelector('.organizer-name').textContent = organizer.name;
             document.querySelector('.organizer-bio p').textContent = organizer.bio;
-            
+
             // Preencher metadados
             document.querySelectorAll('.meta-content p')[0].textContent = organizer.location;
             document.querySelectorAll('.meta-content p')[1].textContent = organizer.memberSince;
             document.querySelectorAll('.meta-content p')[2].textContent = `${organizer.eventsCount} eventos`;
-            
+
             // Preencher contato
             const contactItems = document.querySelectorAll('.contact-list li');
             contactItems[0].innerHTML = `<i class="fas fa-envelope"></i> ${organizer.contact.email}`;
             contactItems[1].innerHTML = `<i class="fas fa-phone"></i> ${organizer.contact.phone}`;
             contactItems[2].innerHTML = `<i class="fas fa-globe"></i> ${organizer.contact.website}`;
             contactItems[3].innerHTML = `<i class="fab fa-instagram"></i> ${organizer.contact.instagram}`;
-            
+
             // Preencher eventos
             const eventsGrid = document.getElementById('events-grid');
             eventsGrid.innerHTML = '';
-            
+
             organizer.events.forEach(event => {
                 const eventCard = document.createElement('div');
                 eventCard.className = 'event-card';
@@ -367,34 +377,34 @@
             const prevBtn = document.querySelector('.prev-btn');
             const nextBtn = document.querySelector('.next-btn');
             let currentIndex = 0;
-            
+
             // Mostrar primeiro slide
             slides[currentIndex].classList.add('active');
-            
+
             // Função para mostrar slide
             function showSlide(index) {
                 slides.forEach(slide => slide.classList.remove('active'));
                 slides[index].classList.add('active');
             }
-            
+
             // Evento botão anterior
             prevBtn.addEventListener('click', () => {
                 currentIndex = (currentIndex - 1 + slides.length) % slides.length;
                 showSlide(currentIndex);
             });
-            
+
             // Evento botão próximo
             nextBtn.addEventListener('click', () => {
                 currentIndex = (currentIndex + 1) % slides.length;
                 showSlide(currentIndex);
             });
-            
+
             // Autoplay
             let autoplay = setInterval(() => {
                 currentIndex = (currentIndex + 1) % slides.length;
                 showSlide(currentIndex);
             }, 5000);
-            
+
             // Pausar autoplay ao interagir
             const carousel = document.querySelector('.carousel-container');
             carousel.addEventListener('mouseenter', () => clearInterval(autoplay));
@@ -411,14 +421,14 @@
             const leftArrow = document.querySelector('.events-arrow-left');
             const rightArrow = document.querySelector('.events-arrow-right');
             const container = document.querySelector('.events-container');
-            
+
             leftArrow.addEventListener('click', () => {
                 container.scrollBy({
                     left: -300,
                     behavior: 'smooth'
                 });
             });
-            
+
             rightArrow.addEventListener('click', () => {
                 container.scrollBy({
                     left: 300,
@@ -435,7 +445,7 @@
             const closeBtn = document.getElementById('close-btn');
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
-            
+
             // Imagens da galeria
             const images = [
                 "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80",
@@ -448,45 +458,45 @@
                 "https://images.unsplash.com/photo-1517462964-21fdcec3f25b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80",
                 "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80"
             ];
-            
+
             let currentIndex = 0;
-            
+
             // Criar miniaturas
             images.forEach((imgSrc, index) => {
                 const thumbnail = document.createElement('div');
                 thumbnail.className = 'gallery-thumbnail';
                 thumbnail.innerHTML = `<img src="${imgSrc}" alt="Foto da galeria ${index + 1}">`;
-                
-                thumbnail.addEventListener('click', function() {
+
+                thumbnail.addEventListener('click', function () {
                     // Atualizar imagem no overlay
                     currentIndex = index;
                     overlayImage.src = imgSrc;
-                    
+
                     // Exibir overlay
                     overlay.classList.add('active');
                     document.body.style.overflow = 'hidden';
                 });
-                
+
                 galleryContainer.appendChild(thumbnail);
             });
-            
+
             // Fechar overlay
             closeBtn.addEventListener('click', () => {
                 overlay.classList.remove('active');
                 document.body.style.overflow = 'auto';
             });
-            
+
             // Navegação entre imagens
             prevBtn.addEventListener('click', () => {
                 currentIndex = (currentIndex - 1 + images.length) % images.length;
                 overlayImage.src = images[currentIndex];
             });
-            
+
             nextBtn.addEventListener('click', () => {
                 currentIndex = (currentIndex + 1) % images.length;
                 overlayImage.src = images[currentIndex];
             });
-            
+
             // Fechar ao clicar fora da imagem
             overlay.addEventListener('click', (e) => {
                 if (e.target === overlay) {
@@ -494,7 +504,7 @@
                     document.body.style.overflow = 'auto';
                 }
             });
-            
+
             // Navegação por teclado
             document.addEventListener('keydown', (e) => {
                 if (overlay.classList.contains('active')) {
@@ -518,20 +528,21 @@
             initCarousel();
             setupEventsNavigation();
             initGallery(); // Inicializa a nova galeria
-            
+
             // Configurar botões do header
             document.querySelector('.btn-login')?.addEventListener('click', () => {
                 alert('Redirecionando para a página de login');
             });
-            
+
             document.querySelector('.btn-create').addEventListener('click', () => {
                 alert('Redirecionando para a página de criação de evento');
             });
-            
+
             document.querySelector('.btn-events').addEventListener('click', () => {
                 alert('Redirecionando para Meus Eventos');
             });
         });
     </script>
 </body>
+
 </html>
