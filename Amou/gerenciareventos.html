@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Eventos - Amou,Amado?</title>
+    <link rel="stylesheet" href="gerenciareventos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-search-container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="imagens/logo.png" alt="Logo Amou, Amado?" class="main-logo">
+                </a>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Pesquisar eventos, artistas, locais..." aria-label="Campo de pesquisa">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <a href="criacaoevento.html" class="header-btn">
+                <i class="fas fa-plus-circle"></i><span class="btn-text">Criar Evento</span>
+            </a>
+            <a href="eventos.html" class="header-btn">
+                <i class="fas fa-calendar-check"></i><span class="btn-text">Meus Eventos</span>
+            </a>
+            <a href="perfilcriador.html" class="header-btn">
+                <i class="fas fa-user-circle"></i><span class="btn-text">Perfil</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Gerenciar Eventos</h1>
+        <p>Visualize, edite ou exclua seus eventos criados</p>
+    </div>
+
+    <!-- Eventos -->
+    <section class="manage-events">
+        <div class="event-card">
+            <div class="event-image">
+                <img src="https://source.unsplash.com/random/600x400/?concert" alt="Show Example">
+            </div>
+            <div class="event-content">
+                <h3 class="event-title">Show na Praça</h3>
+                <div class="event-meta">
+                    <div><i class="far fa-calendar-alt"></i> 20/07/2025 - 20:00</div>
+                    <div><i class="fas fa-map-marker-alt"></i> Praça Castro Alves</div>
+                </div>
+                <div class="event-actions">
+                    <button class="btn edit-btn"><i class="fas fa-edit"></i> Editar</button>
+                    <button class="btn delete-btn"><i class="fas fa-trash"></i> Excluir</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-image">
+                <img src="https://source.unsplash.com/random/600x400/?theater" alt="Teatro Example">
+            </div>
+            <div class="event-content">
+                <h3 class="event-title">Peça Teatral Encanto</h3>
+                <div class="event-meta">
+                    <div><i class="far fa-calendar-alt"></i> 25/07/2025 - 19:00</div>
+                    <div><i class="fas fa-map-marker-alt"></i> Teatro Castro Alves</div>
+                </div>
+                <div class="event-actions">
+                    <button class="btn edit-btn"><i class="fas fa-edit"></i> Editar</button>
+                    <button class="btn delete-btn"><i class="fas fa-trash"></i> Excluir</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+     <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>A Amou,Amado? é uma plataforma que buscar dar visibilidade para os eventos culturais e educativos
+                    feitos por e para o público LGBTQIA+ de Salvador.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="#">Artistas</a></li>
+                    <li><a href="#">Locais</a></li>
+                    <li><a href="#">Promoções</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> Amouamadocontato@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> (71) 99999-9999</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Salvador, BA - Brasil</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright container">
+            <p>&copy; 2023 Amou,Amado?. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
