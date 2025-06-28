@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -15,14 +17,11 @@
                 <img src="imagens\logo.png" alt="Logo Amou, Amado?" class="main-logo">
             </a>
         </div>
-        
+
         <div class="header-actions">
-            <button class="header-btn btn-events">
+            <a href="index.html" class="header-btn btn-events">
                 <i class="fas fa-calendar-check"></i> <span class="btn-text">Eventos</span>
-            </button>
-            <button class="header-btn btn-profile">
-                <i class="fas fa-user-circle"></i> <span class="btn-text">Entrar</span>
-            </button>
+            </a>
         </div>
     </header>
 
@@ -31,32 +30,32 @@
         <div class="login-card">
             <img src="imagens\logo.png" alt="Logo" class="login-logo">
             <h1 class="login-title">Entrar na sua conta</h1>
-            
+
             <form id="login-form">
                 <div class="form-group">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email" required placeholder="exemplo@email.com">
                 </div>
-                
+
                 <div class="form-group">
                     <label for="password">Senha</label>
                     <input type="password" id="password" name="password" required placeholder="Sua senha">
                 </div>
-                
+
                 <div class="form-options">
                     <label class="remember-me">
                         <input type="checkbox" name="remember"> Lembrar-me
                     </label>
                     <a href="#" class="forgot-password">Esqueceu a senha?</a>
                 </div>
-                
+
                 <button type="submit" class="btn-login">Entrar</button>
             </form>
-            
+
             <div class="signup-link">
-                Não tem uma conta? <a href="cadastro.html">Cadastre-se</a>  <!-- Alterado para cadastro.html -->
+                Não tem uma conta? <a href="cadastro.html">Cadastre-se</a> <!-- Alterado para cadastro.html -->
             </div>
-            
+
             <div class="social-login">
                 <div class="social-title">Ou entre com</div>
                 <div class="social-buttons">
@@ -67,13 +66,13 @@
             </div>
         </div>
     </main>
-    
+
     <!-- Rodapé -->
     <footer>
         <div class="container footer-content">
             <div class="footer-section">
                 <h3>Sobre Nós</h3>
-                <p>A Amou,Amado? é uma plataforma que buscar dar visibilidade para os eventos culturais 
+                <p>A Amou,Amado? é uma plataforma que buscar dar visibilidade para os eventos culturais
                     e educativos feitos por e para o público LGBTQIA+ de Salvador.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -82,18 +81,18 @@
                     <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Links Rápidos</h3>
                 <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>  <!-- Atualizado para links corretos -->
+                    <li><a href="index.html">Home</a></li> <!-- Atualizado para links corretos -->
                     <li><a href="eventos.html">Eventos</a></li>
                     <li><a href="#">Artistas</a></li>
                     <li><a href="#">Locais</a></li>
                     <li><a href="#">Promoções</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Contato</h3>
                 <ul class="footer-links">
@@ -103,7 +102,7 @@
                 </ul>
             </div>
         </div>
-        
+
         <div class="copyright container">
             <p>&copy; 2023 Amou,Amado?. Todos os direitos reservados.</p>
         </div>
@@ -111,20 +110,20 @@
 
     <script>
         // Validação simples do formulário
-        document.getElementById('login-form').addEventListener('submit', function(e) {
+        document.getElementById('login-form').addEventListener('submit', function (e) {
             e.preventDefault();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            
+
             // Validação básica
             if (!email || !password) {
                 alert('Por favor, preencha todos os campos.');
                 return;
             }
-            
+
             // Simulação de login bem-sucedido
             alert('Login realizado com sucesso! Redirecionando...');
-            
+
             // Simulação de redirecionamento
             setTimeout(() => {
                 window.location.href = 'index.html';
@@ -132,4 +131,5 @@
         });
     </script>
 </body>
+
 </html>

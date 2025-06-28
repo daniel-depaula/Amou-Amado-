@@ -1,63 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amou,Amado? - Plataforma LGBTQIA+</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
 </head>
+
 <body>
     <!-- Header -->
-<header>
-    <div class="logo-search-container">
-        <div class="logo-container">
-            <a href="index.html">
-                <img src="imagens/logo.png" alt="Logo Amou, Amado?" class="main-logo">
+    <header>
+        <div class="logo-search-container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="imagens/logo.png" alt="Logo Amou, Amado?" class="main-logo">
+                </a>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Pesquisar eventos, artistas, locais..." aria-label="Campo de pesquisa">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <a href="perfilcriador.html" class="header-btn btn-profile">
+                <i class="fas fa-user-circle"></i> <span class="btn-text">Perfil</span>
+            </a>
+            <a href="login.html" class="header-btn btn-profile">
+                <i class="fas fa-envelope"></i> <span class="btn-text">Login</span>
             </a>
         </div>
-        
-        <div class="search-bar">
-            <input type="text" placeholder="Pesquisar eventos, artistas, locais..." aria-label="Campo de pesquisa">
-            <i class="fas fa-search search-icon"></i>
-        </div>
-    </div>
-
-    <div class="header-actions">
-       <a href="criacaoevento.html" class="header-btn btn-create">
-            <i class="fas fa-plus-circle"></i> <span class="btn-text">Criar Evento</span>
-        </a>
-        <a href="eventos.html" class="header-btn btn-events">
-            <i class="fas fa-calendar-check"></i> <span class="btn-text">Meus Eventos</span>
-        </a>
-        <a href="perfilcriador.html" class="header-btn btn-profile">
-            <i class="fas fa-user-circle"></i> <span class="btn-text">Perfil</span>
-        </a>
-        <a href="login.html" class="header-btn btn-profile">
-            <i class="fas fa-envelope"></i> <span class="btn-text">Login</span>
-        </a>
-    </div>
-</header>
+    </header>
 
     <!-- Carrossel -->
     <section class="carousel-section">
         <div class="carousel-container" id="carousel">
-            <div class="carousel-slide" style="background-image: url('https://source.unsplash.com/random/1600x900/?lgbtq,event');">
+            <div class="carousel-slide"
+                style="background-image: url('https://source.unsplash.com/random/1600x900/?lgbtq,event');">
                 <div class="carousel-content">
                     <h2 class="carousel-title">Pride Salvador 2023</h2>
-                    <p class="carousel-description">O maior evento LGBTQIA+ da Bahia com shows, palestras e muita diversão</p>
+                    <p class="carousel-description">O maior evento LGBTQIA+ da Bahia com shows, palestras e muita
+                        diversão</p>
                     <a href="#" class="btn-carousel">Comprar Ingressos</a>
                 </div>
             </div>
-            <div class="carousel-slide" style="background-image: url('https://source.unsplash.com/random/1600x900/?theater,show');">
+            <div class="carousel-slide"
+                style="background-image: url('https://source.unsplash.com/random/1600x900/?theater,show');">
                 <div class="carousel-content">
                     <h2 class="carousel-title">Festival de Artes LGBTQIA+</h2>
                     <p class="carousel-description">Uma celebração da diversidade através da arte e da cultura</p>
                     <a href="#" class="btn-carousel">Ver Programação</a>
                 </div>
             </div>
-            <div class="carousel-slide" style="background-image: url('https://source.unsplash.com/random/1600x900/?concert,music');">
+            <div class="carousel-slide"
+                style="background-image: url('https://source.unsplash.com/random/1600x900/?concert,music');">
                 <div class="carousel-content">
                     <h2 class="carousel-title">Show Drag Queen Extravaganza</h2>
                     <p class="carousel-description">As melhores drag queens do Brasil em uma noite inesquecível</p>
@@ -65,14 +65,14 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="carousel-arrow arrow-left" id="carousel-prev">
             <i class="fas fa-chevron-left"></i>
         </div>
         <div class="carousel-arrow arrow-right" id="carousel-next">
             <i class="fas fa-chevron-right"></i>
         </div>
-        
+
         <div class="carousel-nav" id="carousel-dots">
             <div class="carousel-dot active"></div>
             <div class="carousel-dot"></div>
@@ -88,7 +88,7 @@
                 Ver tudo <i class="fas fa-arrow-right"></i>
             </a>
         </div>
-        
+
         <div class="events-horizontal">
             <div class="events-container" id="proximos-container">
                 <!-- Eventos serão inseridos aqui via JS -->
@@ -110,7 +110,7 @@
                 Ver tudo <i class="fas fa-arrow-right"></i>
             </a>
         </div>
-        
+
         <div class="events-horizontal">
             <div class="events-container" id="artistas-container">
                 <!-- Artistas serão inseridos aqui via JS -->
@@ -129,7 +129,8 @@
         <div class="container footer-content">
             <div class="footer-section">
                 <h3>Sobre Nós</h3>
-                <p>A Amou,Amado? é uma plataforma que buscar dar visibilidade para os eventos culturais e educativos feitos por e para o público LGBTQIA+ de Salvador.</p>
+                <p>A Amou,Amado? é uma plataforma que buscar dar visibilidade para os eventos culturais e educativos
+                    feitos por e para o público LGBTQIA+ de Salvador.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -137,7 +138,7 @@
                     <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Links Rápidos</h3>
                 <ul class="footer-links">
@@ -148,7 +149,7 @@
                     <li><a href="#">Promoções</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Contato</h3>
                 <ul class="footer-links">
@@ -158,7 +159,7 @@
                 </ul>
             </div>
         </div>
-        
+
         <div class="copyright container">
             <p>&copy; 2023 Amou,Amado?. Todos os direitos reservados.</p>
         </div>
@@ -189,7 +190,7 @@
         function renderEvents(events, containerId) {
             const container = document.getElementById(containerId);
             container.innerHTML = '';
-            
+
             events.forEach(event => {
                 const eventCard = document.createElement('div');
                 eventCard.className = 'event-card';
@@ -221,7 +222,7 @@
         function renderArtists(artists, containerId) {
             const container = document.getElementById(containerId);
             container.innerHTML = '';
-            
+
             artists.forEach(artist => {
                 const artistCard = document.createElement('div');
                 artistCard.className = 'artist-card';
@@ -255,7 +256,7 @@
                     const container = document.getElementById(containerId);
                     const direction = arrow.classList.contains('arrow-left') ? -1 : 1;
                     const scrollAmount = container.clientWidth * 0.8;
-                    
+
                     container.scrollBy({
                         left: scrollAmount * direction,
                         behavior: 'smooth'
@@ -278,14 +279,14 @@
             dots.forEach(dot => {
                 dot.classList.remove('active');
             });
-            
+
             // Atualizar índice
             currentSlide = (index + totalSlides) % totalSlides;
-            
+
             // Mostrar slide atual
             slides[currentSlide].style.display = 'block';
             dots[currentSlide].classList.add('active');
-            
+
             // Atualizar container
             document.getElementById('carousel').style.transform = `translateX(-${currentSlide * 100}%)`;
         }
@@ -315,23 +316,24 @@
             renderArtists(artistas, 'artistas-container');
             setupNavigation();
             showSlide(0);
-            
+
             // Auto avançar o carrossel
             setInterval(nextSlide, 5000);
-            
+
             // Configurar botões do header
             document.querySelector('.btn-create').addEventListener('click', () => {
                 alert('Redirecionando para a página de criação de evento');
             });
-            
+
             document.querySelector('.btn-events').addEventListener('click', () => {
                 alert('Redirecionando para Meus Eventos');
             });
-            
+
             document.querySelector('.btn-profile').addEventListener('click', () => {
                 alert('Redirecionando para o Perfil');
             });
         });
     </script>
 </body>
+
 </html>
