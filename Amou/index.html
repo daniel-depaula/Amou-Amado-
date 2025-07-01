@@ -7,7 +7,7 @@
     <title>Amou,Amado? - Plataforma LGBTQIA+</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+   
 </head>
 
 <body>
@@ -36,47 +36,15 @@
         </div>
     </header>
 
-    <!-- Carrossel -->
-    <section class="carousel-section">
-        <div class="carousel-container" id="carousel">
-            <div class="carousel-slide"
-                style="background-image: url('https://source.unsplash.com/random/1600x900/?lgbtq,event');">
-                <div class="carousel-content">
-                    <h2 class="carousel-title">Pride Salvador 2023</h2>
-                    <p class="carousel-description">O maior evento LGBTQIA+ da Bahia com shows, palestras e muita
-                        diversão</p>
-                    <a href="#" class="btn-carousel">Comprar Ingressos</a>
-                </div>
+    <!-- Banner Estático -->
+    <section class="banner-section">
+        <div class="static-banner">
+            <div class="banner-content">
+                <h2 class="banner-title">Pride Salvador 2023</h2>
+                <p class="banner-description">O maior evento LGBTQIA+ da Bahia com shows, palestras e muita
+                    diversão</p>
+                <a href="#" class="btn-banner">Comprar Ingressos</a>
             </div>
-            <div class="carousel-slide"
-                style="background-image: url('https://source.unsplash.com/random/1600x900/?theater,show');">
-                <div class="carousel-content">
-                    <h2 class="carousel-title">Festival de Artes LGBTQIA+</h2>
-                    <p class="carousel-description">Uma celebração da diversidade através da arte e da cultura</p>
-                    <a href="#" class="btn-carousel">Ver Programação</a>
-                </div>
-            </div>
-            <div class="carousel-slide"
-                style="background-image: url('https://source.unsplash.com/random/1600x900/?concert,music');">
-                <div class="carousel-content">
-                    <h2 class="carousel-title">Show Drag Queen Extravaganza</h2>
-                    <p class="carousel-description">As melhores drag queens do Brasil em uma noite inesquecível</p>
-                    <a href="#" class="btn-carousel">Reservar Lugares</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="carousel-arrow arrow-left" id="carousel-prev">
-            <i class="fas fa-chevron-left"></i>
-        </div>
-        <div class="carousel-arrow arrow-right" id="carousel-next">
-            <i class="fas fa-chevron-right"></i>
-        </div>
-
-        <div class="carousel-nav" id="carousel-dots">
-            <div class="carousel-dot active"></div>
-            <div class="carousel-dot"></div>
-            <div class="carousel-dot"></div>
         </div>
     </section>
 
@@ -89,10 +57,9 @@
             </a>
         </div>
 
-        <div class="events-grid">
-            <div class="events-container" id="proximos-container">
-                <!-- Eventos serão inseridos aqui via JS -->
-            </div>
+        <div class="events-grid" id="proximos-container">
+            <!-- Eventos serão inseridos aqui via JS -->
+        </div>
     </section>
 
     <!-- Seção Sobre -->
@@ -217,7 +184,7 @@
 
     <script>
         // Dados para eventos
-        const eventos = Array(10).fill().map((_, i) => ({
+        const eventos = Array(5).fill().map((_, i) => ({
             id: i + 1,
             titulo: `Evento ${i + 1}`,
             categoria: ["Teatro", "Palestra", "Show", "Oficina", "Exposição"][i % 5],
@@ -225,18 +192,9 @@
             local: `Local ${['Pelourinho', 'Farol da Barra', 'Rio Vermelho', 'Casa de Show', 'Teatro'][i % 5]}`,
             imagem: `https://source.unsplash.com/random/600x400/?event,${i}`,
             preco: i % 3 === 0 ? "Gratuito" : `R$ ${30 + (i * 5)},00`
-        })).sort((a, b) => a.id - b.id); // Ordenar por data
-
-        // Dados para artistas
-        const artistas = Array(8).fill().map((_, i) => ({
-            id: i + 1,
-            nome: `Artista ${['Luna', 'Trança', 'Pablo', 'Lia', 'Rita', 'João', 'Maria', 'Carlos'][i]}`,
-            categoria: ["Música", "Teatro", "Dança", "Artes Visuais", "Poesia"][i % 5],
-            imagem: `https://source.unsplash.com/random/600x600/?artist,${i}`,
-            rating: 4 + (i % 2)
         }));
 
-        // Função para renderizar eventos em um container
+        // Função para renderizar eventos em grid
         function renderEvents(events, containerId) {
             const container = document.getElementById(containerId);
             container.innerHTML = '';
@@ -268,105 +226,9 @@
             });
         }
 
-        // Função para renderizar artistas
-        function renderArtists(artists, containerId) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = '';
-
-            artists.forEach(artist => {
-                const artistCard = document.createElement('div');
-                artistCard.className = 'artist-card';
-                artistCard.innerHTML = `
-                    <div class="artist-image">
-                        <img src="${artist.imagem}" alt="${artist.nome}">
-                        <div class="artist-social">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-spotify"></i></a>
-                        </div>
-                    </div>
-                    <div class="artist-content">
-                        <h3 class="artist-name">${artist.nome}</h3>
-                        <div class="artist-category">${artist.categoria}</div>
-                        <div class="artist-rating">
-                            ${'<i class="fas fa-star"></i>'.repeat(artist.rating)}
-                            ${artist.rating < 5 ? '<i class="far fa-star"></i>'.repeat(5 - artist.rating) : ''}
-                        </div>
-                    </div>
-                `;
-                container.appendChild(artistCard);
-            });
-        }
-
-
-
-        // Carrossel
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const dots = document.querySelectorAll('.carousel-dot');
-        const totalSlides = slides.length;
-
-        function showSlide(index) {
-            // Resetar todos os slides
-            slides.forEach(slide => {
-                slide.style.display = 'none';
-            });
-            dots.forEach(dot => {
-                dot.classList.remove('active');
-            });
-
-            // Atualizar índice
-            currentSlide = (index + totalSlides) % totalSlides;
-
-            // Mostrar slide atual
-            slides[currentSlide].style.display = 'block';
-            dots[currentSlide].classList.add('active');
-
-            // Atualizar container
-            document.getElementById('carousel').style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
-
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
-
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
-
-        // Configurar eventos do carrossel
-        document.getElementById('carousel-next').addEventListener('click', nextSlide);
-        document.getElementById('carousel-prev').addEventListener('click', prevSlide);
-
-        // Configurar pontos de navegação
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showSlide(index);
-            });
-        });
-
         // Carregar conteúdo quando a página estiver pronta
         document.addEventListener('DOMContentLoaded', () => {
             renderEvents(eventos, 'proximos-container');
-            renderArtists(artistas, 'artistas-container');
-            setupNavigation();
-            showSlide(0);
-
-            // Auto avançar o carrossel
-            setInterval(nextSlide, 5000);
-
-            // Configurar botões do header
-            document.querySelector('.btn-create').addEventListener('click', () => {
-                alert('Redirecionando para a página de criação de evento');
-            });
-
-            document.querySelector('.btn-events').addEventListener('click', () => {
-                alert('Redirecionando para Meus Eventos');
-            });
-
-            document.querySelector('.btn-profile').addEventListener('click', () => {
-                alert('Redirecionando para o Perfil');
-            });
         });
     </script>
 </body>
