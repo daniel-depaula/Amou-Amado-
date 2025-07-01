@@ -6,7 +6,6 @@
     <title>Eventos Culturais | Amou, Amado?</title>
     <link rel="stylesheet" href="categoriaevento.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
 </head>
 <body>
     <!-- Header -->
@@ -14,12 +13,12 @@
         <div class="logo-search-container">
             <div class="logo-container">
                 <a href="#">
-                    <img src="imagens\logo.png"  alt="Logo"   class="main-logo">
+                    <img src="imagens/logo.png"  alt="Logo"   class="main-logo">
                 </a>
             </div>
             
             <div class="search-bar">
-                <input type="text" placeholder="Pesquisar eventos, artistas, locais..." aria-label="Campo de pesquisa">
+                <input type="text" id="search-input" placeholder="Pesquisar eventos, artistas, locais..." aria-label="Campo de pesquisa">
                 <i class="fas fa-search search-icon"></i>
             </div>
         </div>
@@ -39,22 +38,15 @@
 
     <!-- Conteúdo Principal -->
     <main class="container">
-        <h1 class="page-title">Teatro e Apresentações</h1>
+        <h1 class="page-title" id="page-title">Teatro e Apresentações</h1>
         
-        <p class="category-description">
+        <p class="category-description" id="category-description">
             Descubra as mais emocionantes peças teatrais, performances e apresentações artísticas da comunidade LGBTQIA+ de Salvador. 
             De clássicos reinventados a produções contemporâneas, encontre cultura, emoção e representatividade.
         </p>
         
-        <!-- Filtros -->
+        <!-- Filtros (sem categoria) -->
         <section class="filters">
-            <div class="filter-group">
-                <label for="category-filter">Categoria</label>
-                <select id="category-filter">
-                    <option value="all">Todas categorias</option>
-                </select>
-            </div>
-            
             <div class="filter-group">
                 <label for="date-filter">Filtrar por Data</label>
                 <select id="date-filter">
@@ -77,8 +69,8 @@
             </div>
             
             <div class="filter-buttons">
-                <button class="btn-apply">Aplicar Filtros</button>
-                <button class="btn-reset">Limpar</button>
+                <button class="btn-apply" id="apply-filters">Aplicar Filtros</button>
+                <button class="btn-reset" id="reset-filters">Limpar</button>
             </div>
         </section> 
         
@@ -86,11 +78,6 @@
         <section class="events-grid" id="events-container">
             <!-- Os eventos serão inseridos aqui pelo JavaScript -->
         </section>
-        
-        <!-- Paginação -->
-        <div class="pagination" id="pagination-container">
-            <!-- Botões de paginação serão gerados aqui -->
-        </div>
     </main>
     
     <!-- Rodapé -->
@@ -135,7 +122,34 @@
     </footer>
 
     <script>
-        // Dados de eventos (24 eventos para demonstrar paginação)
+        // Mapeamento de categorias
+        const categoryData = {
+            teatro: {
+                title: "Teatro e Apresentações",
+                description: "Descubra as mais emocionantes peças teatrais, performances e apresentações artísticas da comunidade LGBTQIA+ de Salvador. De clássicos reinventados a produções contemporâneas, encontre cultura, emoção e representatividade."
+            },
+            palestras: {
+                title: "Palestras e Oficinas",
+                description: "Encontre palestras, workshops e oficinas que promovem conhecimento, diálogo e empoderamento da comunidade LGBTQIA+ em Salvador. Aprenda, compartilhe e conecte-se."
+            },
+            shows: {
+                title: "Shows e Festas",
+                description: "Aproveite a vida noturna de Salvador com os melhores shows, festas e eventos sociais voltados para o público LGBTQIA+. Celebre a diversidade com música, dança e alegria."
+            }
+        };
+
+        // Obter parâmetro da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoria = urlParams.get('categoria') || 'teatro';
+
+        // Atualizar cabeçalho conforme a categoria
+        if (categoryData[categoria]) {
+            document.getElementById('page-title').textContent = categoryData[categoria].title;
+            document.getElementById('category-description').textContent = categoryData[categoria].description;
+            document.title = `${categoryData[categoria].title} | Amou, Amado?`;
+        }
+        
+        // Dados de eventos
         const performances = [
             // Teatro Clássico
             {
@@ -145,7 +159,7 @@
                 date: "Sábado, 15 de julho às 20:00",
                 image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                 price: 90,
-                category: "Teatro Clássico",
+                category: "Teatro e apresentações",
                 duration: "2h30min",
                 ageRating: "14 anos"
             },
@@ -156,7 +170,7 @@
                 date: "Domingo, 16 de julho às 19:30",
                 image: "https://images.unsplash.com/photo-1579092583978-9e125cac7f0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                 price: 70,
-                category: "Teatro Clássico",
+                category: "Teatro e apresentações",
                 duration: "2h",
                 ageRating: "Livre"
             },
@@ -167,7 +181,7 @@
                 date: "Sexta, 21 de julho às 21:00",
                 image: "https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                 price: 120,
-                category: "Teatro Clássico",
+                category: "Teatro e apresentações",
                 duration: "2h15min",
                 ageRating: "16 anos"
             },
@@ -180,7 +194,7 @@
                 date: "Quinta, 27 de julho às 20:30",
                 image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                 price: 60,
-                category: "Comédia",
+                category: "Teatro e apresentações",
                 duration: "1h45min",
                 ageRating: "12 anos"
             },
@@ -191,7 +205,7 @@
                 date: "Sábado, 29 de julho às 18:00",
                 image: "https://images.unsplash.com/photo-1549144511-78ee39f5c993?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                 price: 50,
-                category: "Comédia",
+                category: "Teatro e apresentações",
                 duration: "1h30min",
                 ageRating: "Livre"
             },
@@ -202,7 +216,7 @@
                 date: "Domingo, 30 de julho às 17:00",
                 image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                 price: 40,
-                category: "Comédia",
+                category: "Teatro e apresentações",
                 duration: "2h",
                 ageRating: "Livre"
             },
@@ -215,7 +229,7 @@
                 date: "Sexta, 4 de agosto às 21:00",
                 image: "https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                 price: 120,
-                category: "Dança",
+                category: "Teatro e apresentações",
                 duration: "2h15min",
                 ageRating: "Livre"
             },
@@ -226,7 +240,7 @@
                 date: "Sábado, 5 de agosto às 19:00",
                 image: "https://images.unsplash.com/photo-1556159992-e189f07a03e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                 price: 80,
-                category: "Dança",
+                category: "Teatro e apresentações",
                 duration: "1h30min",
                 ageRating: "14 anos"
             },
@@ -237,200 +251,96 @@
                 date: "Domingo, 6 de agosto às 18:00",
                 image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                 price: 60,
-                category: "Dança",
+                category: "Teatro e apresentações",
                 duration: "1h45min",
                 ageRating: "Livre"
             },
-            
-            // Música
             {
                 id: 10,
-                title: "Orquestra Sinfônica da Bahia",
-                location: "Sala de Concertos do TCA - Salvador, BA",
-                date: "Sexta, 11 de agosto às 20:00",
-                image: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                price: 100,
-                category: "Música",
-                duration: "2h",
-                ageRating: "Livre"
+                title: "Oficina de Escrita Criativa",
+                location: "Centro Cultural da Barroquinha - Salvador, BA",
+                date: "Sábado, 15 de julho às 14:00",
+                image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 0,
+                category: "Palestras e Oficinas",
+                duration: "3h",
+                ageRating: "16 anos"
             },
             {
                 id: 11,
-                title: "Show de MPB",
-                location: "Casa da Música - Salvador, BA",
-                date: "Sábado, 12 de agosto às 21:00",
-                image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                price: 70,
-                category: "Música",
+                title: "Palestra: Empoderamento LGBTQIA+",
+                location: "Auditório da Faculdade de Direito - UFBA - Salvador, BA",
+                date: "Terça, 18 de julho às 19:00",
+                image: "https://images.unsplash.com/photo-1551818255-e6e10975bc17?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 0,
+                category: "Palestras e Oficinas",
                 duration: "2h",
                 ageRating: "16 anos"
             },
             {
                 id: 12,
-                title: "Tributo a Legião Urbana",
-                location: "Teatro Vila Velha - Salvador, BA",
-                date: "Domingo, 13 de agosto às 19:30",
-                image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                price: 90,
-                category: "Música",
-                duration: "2h30min",
-                ageRating: "14 anos"
+                title: "Workshop de Dança Contemporânea",
+                location: "Estúdio de Dança do Pelô - Salvador, BA",
+                date: "Quinta, 20 de julho às 18:30",
+                image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 80,
+                category: "Palestras e Oficinas",
+                duration: "2h",
+                ageRating: "Livre"
             },
             {
                 id: 13,
-                title: "Jazz & Blues Night",
-                location: "Teatro ICBA - Salvador, BA",
-                date: "Sexta, 18 de agosto às 21:00",
-                image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                price: 80,
-                category: "Música",
-                duration: "2h",
-                ageRating: "16 anos"
+                title: "Show de Aniversário: Banda XYZ",
+                location: "Bar do Cachorro - Salvador, BA",
+                date: "Sexta, 14 de julho às 22:00",
+                image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 50,
+                category: "Shows e Festas",
+                duration: "4h",
+                ageRating: "18 anos"
             },
             {
                 id: 14,
-                title: "Samba de Raiz",
-                location: "Teatro Gamboa Nova - Salvador, BA",
-                date: "Sábado, 19 de agosto às 20:00",
-                image: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                price: 50,
-                category: "Música",
-                duration: "2h",
-                ageRating: "Livre"
+                title: "Festa da Diversidade",
+                location: "Clube de Campo - Salvador, BA",
+                date: "Sábado, 22 de julho às 23:00",
+                image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                price: 70,
+                category: "Shows e Festas",
+                duration: "6h",
+                ageRating: "18 anos"
             },
             {
                 id: 15,
-                title: "Forró Pé de Serra",
-                location: "Teatro SESC Pelourinho - Salvador, BA",
-                date: "Domingo, 20 de agosto às 18:00",
-                image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                price: 40,
-                category: "Música",
-                duration: "2h30min",
-                ageRating: "Livre"
-            },
-            
-            // Performance
-            {
-                id: 16,
-                title: "Performance: Corpos Queer",
-                location: "Galeria de Arte Contemporânea - Salvador, BA",
-                date: "Sábado, 26 de agosto às 19:00",
-                image: "https://images.unsplash.com/photo-1501084817091-a4f3d1d19e07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                price: 40,
-                category: "Performance",
-                duration: "1h20min",
-                ageRating: "18 anos"
-            },
-            {
-                id: 17,
-                title: "Drag Show: Rainhas da Bahia",
-                location: "Casa da Música - Salvador, BA",
-                date: "Sexta, 1 de setembro às 22:00",
-                image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                price: 35,
-                category: "Performance",
-                duration: "2h",
-                ageRating: "16 anos"
-            },
-            {
-                id: 18,
-                title: "Teatro de Rua: Manifestações Urbanas",
-                location: "Pelourinho - Salvador, BA",
-                date: "Domingo, 3 de setembro às 16:00",
+                title: "Baile Black Music",
+                location: "Espaço Cultural Rio Vermelho - Salvador, BA",
+                date: "Sábado, 29 de julho às 21:00",
                 image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                price: 0,
-                category: "Performance",
-                duration: "1h30min",
-                ageRating: "Livre"
-            },
-            
-            // Teatro Adulto
-            {
-                id: 19,
-                title: "O Mistério de Irma Vap",
-                location: "Teatro ICBA - Salvador, BA",
-                date: "Sábado, 9 de setembro às 21:00",
-                image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                price: 70,
-                category: "Teatro Adulto",
-                duration: "1h40min",
+                price: 40,
+                category: "Shows e Festas",
+                duration: "5h",
                 ageRating: "18 anos"
-            },
-            {
-                id: 20,
-                title: "Entre Quatro Paredes",
-                location: "Teatro Vila Velha - Salvador, BA",
-                date: "Sexta, 15 de setembro às 20:30",
-                image: "https://images.unsplash.com/photo-1549144511-78ee39f5c993?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                price: 65,
-                category: "Teatro Adulto",
-                duration: "1h50min",
-                ageRating: "18 anos"
-            },
-            {
-                id: 21,
-                title: "Amor em Tempos de Tinder",
-                location: "Teatro Gamboa Nova - Salvador, BA",
-                date: "Sábado, 16 de setembro às 21:00",
-                image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                price: 55,
-                category: "Teatro Adulto",
-                duration: "1h30min",
-                ageRating: "16 anos"
-            },
-            
-            // Música e Poesia
-            {
-                id: 22,
-                title: "Cordel do Fogo Encantado",
-                location: "Teatro SESC Pelourinho - Salvador, BA",
-                date: "Domingo, 24 de setembro às 19:00",
-                image: "https://images.unsplash.com/photo-1501084817091-a4f3d1d19e07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                price: 60,
-                category: "Música e Poesia",
-                duration: "1h45min",
-                ageRating: "12 anos"
-            },
-            {
-                id: 23,
-                title: "Sarau Poético: Vozes Periféricas",
-                location: "Casa da Cultura - Salvador, BA",
-                date: "Sábado, 30 de setembro às 18:00",
-                image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                price: 30,
-                category: "Música e Poesia",
-                duration: "2h",
-                ageRating: "14 anos"
-            },
-            {
-                id: 24,
-                title: "Poesia e Música com Elisa Lucinda",
-                location: "Teatro Castro Alves - Salvador, BA",
-                date: "Sexta, 6 de outubro às 20:00",
-                image: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                price: 90,
-                category: "Música e Poesia",
-                duration: "2h",
-                ageRating: "14 anos"
             }
         ];
 
-        // Configuração de paginação
-        const eventsPerPage = 12;
-        let currentPage = 1;
+        // Função para filtrar os eventos pela categoria
+        function filterByCategory() {
+            if (categoria === 'teatro') {
+                return performances.filter(event => event.category === "Teatro e apresentações");
+            } else if (categoria === 'palestras') {
+                return performances.filter(event => event.category === "Palestras e Oficinas");
+            } else if (categoria === 'shows') {
+                return performances.filter(event => event.category === "Shows e Festas");
+            }
+            return performances; // default
+        }
 
-        // Função para renderizar os eventos na página atual
+        // Função para renderizar os eventos
         function renderEvents() {
             const container = document.getElementById('events-container');
             container.innerHTML = '';
 
-            // Calcular índices dos eventos para a página atual
-            const startIndex = (currentPage - 1) * eventsPerPage;
-            const endIndex = startIndex + eventsPerPage;
-            const eventsToRender = performances.slice(startIndex, endIndex);
-
-            eventsToRender.forEach(event => {
+            filteredPerformances.forEach(event => {
                 const priceText = event.price === 0 ? 'Gratuito' : `R$ ${event.price}`;
 
                 const eventCard = document.createElement('div');
@@ -462,159 +372,91 @@
 
                 container.appendChild(eventCard);
             });
-
-            renderPagination();
         }
 
-        // Função para renderizar a paginação
-        function renderPagination() {
-            const paginationContainer = document.getElementById('pagination-container');
-            paginationContainer.innerHTML = '';
-
-            const totalPages = Math.ceil(performances.length / eventsPerPage);
-
-            // Botão Anterior
-            const prevButton = document.createElement('button');
-            prevButton.className = 'pagination-btn';
-            prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
-            prevButton.addEventListener('click', () => {
-                if (currentPage > 1) {
-                    currentPage--;
-                    renderEvents();
-                }
-            });
-            if (currentPage === 1) prevButton.classList.add('disabled');
-            paginationContainer.appendChild(prevButton);
-
-            // Botões de página
-            for (let i = 1; i <= totalPages; i++) {
-                const pageButton = document.createElement('button');
-                pageButton.className = 'pagination-btn';
-                pageButton.textContent = i;
-                if (i === currentPage) pageButton.classList.add('active');
-                
-                pageButton.addEventListener('click', () => {
-                    currentPage = i;
-                    renderEvents();
-                });
-                
-                paginationContainer.appendChild(pageButton);
-            }
-
-            // Botão Próximo
-            const nextButton = document.createElement('button');
-            nextButton.className = 'pagination-btn';
-            nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
-            nextButton.addEventListener('click', () => {
-                if (currentPage < totalPages) {
-                    currentPage++;
-                    renderEvents();
-                }
-            });
-            if (currentPage === totalPages) nextButton.classList.add('disabled');
-            paginationContainer.appendChild(nextButton);
-        }
-
-        // Função para filtrar eventos
-        function filterPerformances() {
+        // Função para aplicar filtros (data e preço)
+        function applyFilters() {
             const dateFilter = document.getElementById('date-filter').value;
             const priceFilter = document.getElementById('price-filter').value;
-            const categoryFilter = document.getElementById('category-filter').value;
 
-            let filteredPerformances = [...performances];
-
-            // Filtro por categoria
-            if (categoryFilter !== 'all') {
-                filteredPerformances = filteredPerformances.filter(
-                    perf => perf.category === categoryFilter
-                );
-            }
+            // Começamos com todos os eventos da categoria
+            let tempPerformances = filterByCategory();
 
             // Filtro por preço
             if (priceFilter !== 'all') {
                 if (priceFilter === 'free') {
-                    filteredPerformances = filteredPerformances.filter(perf => perf.price === 0);
+                    tempPerformances = tempPerformances.filter(perf => perf.price === 0);
                 } else {
                     const maxPrice = parseInt(priceFilter);
-                    filteredPerformances = filteredPerformances.filter(perf => perf.price <= maxPrice);
+                    tempPerformances = tempPerformances.filter(perf => perf.price <= maxPrice);
                 }
             }
 
             // Filtro por data (simulado)
             if (dateFilter !== 'all') {
-                filteredPerformances = filteredPerformances.filter((_, index) => index < 10);
+                // Para demonstração, vamos simular eventos desta semana (primeiros 10)
+                if (dateFilter === 'week') {
+                    tempPerformances = tempPerformances.slice(0, 10);
+                }
+                // Este mês (primeiros 15)
+                else if (dateFilter === 'month') {
+                    tempPerformances = tempPerformances.slice(0, 15);
+                }
+                // Próximos eventos (últimos 10)
+                else if (dateFilter === 'upcoming') {
+                    tempPerformances = tempPerformances.slice(-10);
+                }
             }
 
-            // Atualizar a lista de eventos e resetar paginação
-            performances.length = 0;
-            performances.push(...filteredPerformances);
-            currentPage = 1;
+            filteredPerformances = tempPerformances;
             renderEvents();
         }
 
-        // Função para preencher opções de categoria
-        function populateCategoryFilters() {
-            const categorySelect = document.getElementById('category-filter');
-
-            const categories = [...new Set(performances.map(perf => perf.category))];
+        // Função para buscar eventos (dentro da categoria)
+        function searchEvents() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
             
-            categories.forEach(category => {
-                const option = document.createElement('option');
-                option.value = category;
-                option.textContent = category;
-                categorySelect.appendChild(option);
-            });
+            // Base: eventos da categoria
+            let basePerformances = filterByCategory();
+            
+            if (searchTerm === '') {
+                filteredPerformances = [...basePerformances];
+            } else {
+                filteredPerformances = basePerformances.filter(event => 
+                    event.title.toLowerCase().includes(searchTerm) ||
+                    event.location.toLowerCase().includes(searchTerm) ||
+                    event.category.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            renderEvents();
         }
 
         // Inicialização da página
         document.addEventListener('DOMContentLoaded', () => {
-            // Preencher categorias
-            populateCategoryFilters();
-            
-            // Renderizar eventos
+            // Inicialmente, os eventos são filtrados pela categoria
+            filteredPerformances = filterByCategory();
             renderEvents();
             
-            // Filtros
-            document.querySelector('.btn-apply').addEventListener('click', filterPerformances);
-            document.querySelector('.btn-reset').addEventListener('click', () => {
+            // Event listeners para filtros
+            document.getElementById('apply-filters').addEventListener('click', applyFilters);
+            document.getElementById('reset-filters').addEventListener('click', () => {
                 document.getElementById('date-filter').value = 'all';
                 document.getElementById('price-filter').value = 'all';
-                document.getElementById('category-filter').value = 'all';
                 
-                // Resetar para todos os eventos
-                performances.length = 0;
-                performances.push(...originalEvents);
-                currentPage = 1;
+                // Volta a mostrar todos os eventos da categoria
+                filteredPerformances = filterByCategory();
                 renderEvents();
             });
 
             // Busca
-            document.querySelector('.search-bar input').addEventListener('keyup', (e) => {
+            document.getElementById('search-input').addEventListener('input', searchEvents);
+            document.getElementById('search-input').addEventListener('keyup', (e) => {
                 if (e.key === 'Enter') {
-                    const searchTerm = e.target.value.toLowerCase().trim();
-                    if (searchTerm === '') {
-                        performances.length = 0;
-                        performances.push(...originalEvents);
-                        renderEvents();
-                        return;
-                    }
-                    
-                    const filtered = performances.filter(perf =>
-                        perf.title.toLowerCase().includes(searchTerm) ||
-                        perf.location.toLowerCase().includes(searchTerm) ||
-                        perf.category.toLowerCase().includes(searchTerm)
-                    );
-                    
-                    performances.length = 0;
-                    performances.push(...filtered);
-                    currentPage = 1;
-                    renderEvents();
+                    searchEvents();
                 }
             });
         });
-
-        // Salvar cópia original dos eventos para reset
-        const originalEvents = [...performances];
     </script>
 </body>
 </html>
