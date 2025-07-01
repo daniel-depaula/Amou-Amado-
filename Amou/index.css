@@ -142,6 +142,11 @@ header {
     color: #F6C0D8;
 }
 
+
+
+
+
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     header {
@@ -340,6 +345,10 @@ header {
     transform: translateY(-2px);
 }
 
+
+
+
+
 /* EVENTOS HORIZONTAIS */
 .events-horizontal {
     position: relative;
@@ -365,6 +374,9 @@ header {
 .events-container::-webkit-scrollbar {
     display: none;
 }
+
+
+
 
 /* EVENT CARDS */
 .event-card {
@@ -537,56 +549,7 @@ header {
     font-size: 1.1rem;
 }
 
-/* NAV ARROWS */
-.nav-arrow {
-    position: absolute;
-    top: 40%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    background: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s;
-    color: var(--primary);
-}
 
-.nav-arrow:hover {
-    background: var(--primary);
-    color: white;
-    transform: translateY(-50%) scale(1.1);
-}
-
-.arrow-left {
-    left: 4px;
-}
-
-.arrow-right {
-    right: 4px;
-}
-
-/* FEATURED SECTION 
-        .featured-section {
-            padding: 50px 0;
-            background: white;
-            margin: 40px 0;
-            position: relative;
-        }
-
-        .featured-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 10px;
-            background: var(--gradient);
-        }*/
 
 /* SOBRE SECTION */
 .sobre-section {

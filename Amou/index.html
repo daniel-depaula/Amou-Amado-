@@ -89,17 +89,10 @@
             </a>
         </div>
 
-        <div class="events-horizontal">
+        <div class="events-grid">
             <div class="events-container" id="proximos-container">
                 <!-- Eventos serão inseridos aqui via JS -->
             </div>
-            <div class="nav-arrow arrow-left" data-container="proximos-container">
-                <i class="fas fa-chevron-left"></i>
-            </div>
-            <div class="nav-arrow arrow-right" data-container="proximos-container">
-                <i class="fas fa-chevron-right"></i>
-            </div>
-        </div>
     </section>
 
     <!-- Seção Sobre -->
@@ -127,6 +120,7 @@
             </div>
         </div>
     </section>
+
     <!-- Seção Arte com Orgulho -->
     <h2 class="arte-title">Arte com Orgulho:<br>A Voz dos Artistas LGBTQIA+</h2>
     <section class="arte-section">
@@ -178,6 +172,8 @@
             </div>
         </div>
     </section>
+
+    
     <!-- Rodapé -->
     <footer>
         <div class="container footer-content">
@@ -302,22 +298,7 @@
             });
         }
 
-        // Função para navegação com setas
-        function setupNavigation() {
-            document.querySelectorAll('.nav-arrow').forEach(arrow => {
-                arrow.addEventListener('click', () => {
-                    const containerId = arrow.getAttribute('data-container');
-                    const container = document.getElementById(containerId);
-                    const direction = arrow.classList.contains('arrow-left') ? -1 : 1;
-                    const scrollAmount = container.clientWidth * 0.8;
 
-                    container.scrollBy({
-                        left: scrollAmount * direction,
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        }
 
         // Carrossel
         let currentSlide = 0;
