@@ -27,7 +27,7 @@
         <div class="header-actions">
             <!-- Mantido apenas o botão de Perfil -->
             <a href="perfilcriador.html" class="header-btn btn-profile">
-                <i class="fas fa-user-circle"></i> <span class="btn-text">Perfil</span>
+                <i class="fas fa-user-circle"></i> <span class="btn-text">Login</span>
             </a>
         </div>
     </header>
@@ -121,80 +121,125 @@
     </footer>
 
     <script>
-        // Dados de exemplo para eventos (5 por categoria)
-        const eventos = {
-            teatro: Array(5).fill().map((_, i) => ({
-                id: i + 1,
-                titulo: `Peça Teatral ${i + 1}`,
-                categoria: "Teatro",
-                data: `Sábado, ${15 + i}/07 às ${20 - i}:00`,
-                local: `Teatro ${['Vila Velha', 'Castro Alves', 'Martim Gonçalves', 'SESC', 'ICBA'][i]}`,
-                imagem: `https://source.unsplash.com/random/600x400/?theater,${i}`,
-                preco: `R$ ${30 + (i * 5)},00`
-            })),
-            palestras: Array(5).fill().map((_, i) => ({
-                id: i + 1,
-                titulo: `Palestra ${i + 1}`,
-                categoria: "Palestra",
-                data: `Quarta, ${19 + i}/07 às ${19 - (i % 2)}:00`,
-                local: `Centro ${['Cultural', 'de Convenções', 'Universitário', 'de Inovação', 'LGBTQIA+'][i]}`,
-                imagem: `https://source.unsplash.com/random/600x400/?lecture,${i}`,
-                preco: i % 2 === 0 ? "Gratuito" : `R$ ${20 + (i * 5)},00`
-            })),
-            shows: Array(5).fill().map((_, i) => ({
-                id: i + 1,
-                titulo: `Show ${i + 1}`,
-                categoria: "Show",
-                data: `Sábado, ${15 + i}/07 às ${22 - (i % 3)}:00`,
-                local: `Local ${['Praça Castro Alves', 'Farol da Barra', 'Pelourinho', 'Clube Fantoches', 'Casa de Show'][i]}`,
-                imagem: `https://source.unsplash.com/random/600x400/?concert,${i}`,
-                preco: `R$ ${40 + (i * 5)},00`
-            }))
-        };
+    // Função para obter o ID da URL
+    function obterIdEventoDaUrl() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get("id");
+    }
 
-        // Função para renderizar eventos em um container
-        function renderEvents(events, containerId) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = '';
+    // Função para buscar o evento da API pelo ID
+    async function buscarEventoPorId(id) {
+        try {
+            const resposta = await fetch(`http://localhost:8080/api/eventos/${id}`);
+            if (!resposta.ok) {
+                throw new Error(`Erro ao buscar evento com ID ${id}`);
+            }
+            return await resposta.json();
+        } catch (erro) {
+            console.error("Erro ao carregar evento:", erro);
+            return null;
+        }
+    }
 
-            events.forEach(event => {
-                const eventCard = document.createElement('div');
-                eventCard.className = 'event-card';
-                eventCard.innerHTML = `
-                    <div class="event-image">
-                        <img src="${event.imagem}" alt="${event.titulo}">
+    // Função para preencher a página com os dados do evento
+    function preencherDetalhesEvento(evento) {
+        document.querySelector(".event-title").textContent = evento.titulo || "Evento";
+        document.querySelector(".event-category").textContent = evento.categoria || "";
+        document.querySelector(".event-image img").src = evento.imagem || "https://via.placeholder.com/1200x600";
+        document.querySelector(".event-price").textContent = evento.preco ? `R$ ${evento.preco.toFixed(2)}` : "Gratuito";
+
+        document.querySelector(".meta-content:nth-child(2) p").textContent = evento.local || "";
+        document.querySelectorAll(".meta-item")[1].querySelector("p").textContent = evento.data || "";
+        document.querySelectorAll(".meta-item")[2].querySelector("p").textContent = evento.duracao || "";
+        document.querySelectorAll(".meta-item")[3].querySelector("p").textContent = evento.classificacaoEtaria || "";
+
+        // Descrição
+        const descricao = document.querySelector(".event-description p");
+        if (descricao) descricao.textContent = evento.descricao || "";
+
+        // Destaques
+        const destaquesContainer = document.querySelector(".event-highlights");
+        if (destaquesContainer && evento.destaques) {
+            const destaques = evento.destaques.split(";").map(d => d.trim()).filter(Boolean);
+            destaquesContainer.innerHTML = `
+                <h3 class="section-title" style="font-size: 1.5rem;">Destaques</h3>
+                ${destaques.map(d => `
+                    <div class="highlight-item">
+                        <div class="highlight-icon"><i class="fas fa-star"></i></div>
+                        <div class="highlight-content"><p>${d}</p></div>
                     </div>
-                    <div class="event-content">
-                        <span class="event-category">${event.categoria}</span>
-                        <h3 class="event-title">${event.titulo}</h3>
-                        <div class="event-meta">
-                            <div class="meta-item">
-                                <i class="far fa-calendar-alt"></i>
-                                <span>${event.data}</span>
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>${event.local}</span>
-                            </div>
-                        </div>
-                        <div class="event-price">${event.preco}</div>
-                    </div>
-                `;
-                container.appendChild(eventCard);
-            });
+                `).join("")}
+            `;
         }
 
-        // Carregar eventos quando a página estiver pronta
-        document.addEventListener('DOMContentLoaded', () => {
-            renderEvents(eventos.teatro, 'teatro-container');
-            renderEvents(eventos.palestras, 'palestras-container');
-            renderEvents(eventos.shows, 'shows-container');
+        // Artistas Confirmados
+        const listaArtistas = document.querySelector(".artist-list");
+        if (listaArtistas && evento.artistas) {
+            const artistas = evento.artistas.split(";").map(a => a.trim()).filter(Boolean);
+            listaArtistas.innerHTML = artistas.map(artista => `<li>${artista}</li>`).join("");
+        }
 
-            // Configurar botão do header (apenas perfil)
-            document.querySelector('.btn-profile').addEventListener('click', () => {
-                alert('Redirecionando para o Perfil');
-            });
+        // Criador do Evento (fictício por enquanto)
+        document.querySelector("#creator-profile").href = `perfil-criador.html?id=1`;
+        document.querySelector(".creator-name").textContent = "Organizador";
+
+        // Lista de Preços
+        document.querySelector(".price-list").innerHTML = `
+            <li>Pista Comum: R$ ${evento.preco?.toFixed(2) || "00,00"}</li>
+            <li>Área VIP: R$ ${(evento.preco * 2)?.toFixed(2) || "00,00"}</li>
+            <li>Meia-entrada para estudantes e idosos</li>
+        `;
+
+        // Políticas
+        const listaPoliticas = document.querySelector(".policy-list");
+        if (listaPoliticas && evento.politicas) {
+            const politicas = evento.politicas.split(";").map(p => p.trim()).filter(Boolean);
+            listaPoliticas.innerHTML = politicas.map(p => `<li>${p}</li>`).join("");
+        }
+
+        // Contato
+        const contatoUl = document.querySelector(".contact-list");
+        contatoUl.innerHTML = `
+            <li>Telefone: ${evento.telefoneContato || "(00) 00000-0000"}</li>
+            <li>Email: ${evento.emailContato || "contato@exemplo.com"}</li>
+            <li>Site: ${evento.websiteContato || "www.exemplo.com"}</li>
+        `;
+
+        // Localização
+        document.querySelector("#map-placeholder p").textContent = `${evento.local}, ${evento.bairro || ""} - ${evento.cidade || ""}, ${evento.estado || ""}`;
+    }
+
+    // Iniciar carregamento
+    document.addEventListener("DOMContentLoaded", async () => {
+        const id = obterIdEventoDaUrl();
+        if (!id) {
+            alert("ID do evento não encontrado na URL.");
+            return;
+        }
+
+        const evento = await buscarEventoPorId(id);
+        if (!evento) {
+            alert("Evento não encontrado.");
+            return;
+        }
+
+        preencherDetalhesEvento(evento);
+
+        // Botões do header
+        document.querySelector('.btn-create')?.addEventListener('click', () => {
+            window.location.href = 'criacaoevento.html';
         });
-    </script>
+        document.querySelector('.btn-events')?.addEventListener('click', () => {
+            window.location.href = 'gerenciareventos.html';
+        });
+        document.querySelector('.btn-profile')?.addEventListener('click', () => {
+            window.location.href = 'perfilcriador.html';
+        });
+
+        document.getElementById('buy-tickets')?.addEventListener('click', () => {
+            alert('Redirecionando para compra de ingressos');
+        });
+    });
+</script>
 </body>
 </html>
