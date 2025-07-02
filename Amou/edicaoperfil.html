@@ -12,32 +12,7 @@
 
 <body>
     <!-- Header -->
-    <header>
-        <div class="logo-search-container">
-            <div class="logo-container">
-                <a href="index.html">
-                    <img src="https://via.placeholder.com/150x60?text=LOGO" alt="Logo Amou, Amado?" class="main-logo">
-                </a>
-            </div>
-
-            <div class="search-bar">
-                <input type="text" placeholder="Pesquisar eventos, artistas, locais..." aria-label="Campo de pesquisa">
-                <i class="fas fa-search search-icon"></i>
-            </div>
-        </div>
-
-        <div class="header-actions">
-            <a href="criacaoevento.html" class="header-btn btn-create">
-                <i class="fas fa-plus-circle"></i> <span class="btn-text">Criar Evento</span>
-            </a>
-            <a href="eventos.html" class="header-btn btn-events">
-                <i class="fas fa-calendar-check"></i> <span class="btn-text">Meus Eventos</span>
-            </a>
-            <a href="perfilcriador.html" class="header-btn btn-profile">
-                <i class="fas fa-user-circle"></i> <span class="btn-text">Perfil</span>
-            </a>
-        </div>
-    </header>
+    <script src="header.js"></script>
 
     <!-- Conteúdo Principal - Edição de Perfil -->
     <main class="container">
@@ -222,154 +197,11 @@
     </main>
 
     <!-- Rodapé -->
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-section">
-                <h3>Sobre Nós</h3>
-                <p>A Amou,Amado? é uma plataforma que buscar dar visibilidade para os eventos culturais e educativos
-                    feitos por e para o público LGBTQIA+ de Salvador.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
+    <script src="footer.js"></script>
 
-            <div class="footer-section">
-                <h3>Links Rápidos</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Eventos</a></li>
-                    <li><a href="#">Artistas</a></li>
-                    <li><a href="#">Locais</a></li>
-                    <li><a href="#">Promoções</a></li>
-                </ul>
-            </div>
+    <!-- JS -->
+    <script src="edicaoperfil.js"></script>
 
-            <div class="footer-section">
-                <h3>Contato</h3>
-                <ul class="footer-links">
-                    <li><i class="fas fa-envelope"></i> Amouamadocontato@gmail.com</li>
-                    <li><i class="fas fa-phone"></i> (71) 99999-9999</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Salvador, BA - Brasil</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="copyright container">
-            <p>&copy; 2023 ShowTime. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Avatar Upload
-            const avatarUpload = document.getElementById('avatar-upload');
-            const avatarInput = document.getElementById('avatar-input');
-            const avatarPreview = document.getElementById('avatar-preview');
-
-            avatarUpload.addEventListener('click', () => {
-                avatarInput.click();
-            });
-
-            avatarInput.addEventListener('change', (e) => {
-                const file = e.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        avatarPreview.innerHTML = `<img src="${e.target.result}" alt="Preview do Avatar">`;
-                    };
-                    reader.readAsDataURL(file);
-                }
-            });
-
-            // Cover Upload
-            const coverUpload = document.getElementById('cover-upload');
-            const coverInput = document.getElementById('cover-input');
-            const coverPreview = document.getElementById('cover-preview');
-
-            coverUpload.addEventListener('click', () => {
-                coverInput.click();
-            });
-
-            coverInput.addEventListener('change', (e) => {
-                const file = e.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        coverPreview.innerHTML = `<img src="${e.target.result}" alt="Preview da Capa">`;
-                    };
-                    reader.readAsDataURL(file);
-                }
-            });
-
-            // Galeria de Fotos
-            const galleryInput = document.getElementById('gallery-input');
-            const addGalleryBtn = document.getElementById('add-gallery');
-            const galleryContainer = document.getElementById('gallery-container');
-
-            addGalleryBtn.addEventListener('click', () => {
-                galleryInput.click();
-            });
-
-            galleryInput.addEventListener('change', (e) => {
-                const files = e.target.files;
-                if (files.length > 0) {
-                    for (let i = 0; i < files.length; i++) {
-                        const file = files[i];
-                        const reader = new FileReader();
-
-                        reader.onload = (e) => {
-                            const galleryItem = document.createElement('div');
-                            galleryItem.className = 'gallery-item';
-                            galleryItem.innerHTML = `
-                                <img src="${e.target.result}" alt="Nova foto da galeria">
-                                <div class="delete-btn"><i class="fas fa-times"></i></div>
-                            `;
-
-                            // Adiciona antes do botão de adicionar
-                            galleryContainer.insertBefore(galleryItem, addGalleryBtn);
-
-                            // Adiciona evento para remover a foto
-                            galleryItem.querySelector('.delete-btn').addEventListener('click', () => {
-                                galleryItem.remove();
-                            });
-                        };
-
-                        reader.readAsDataURL(file);
-                    }
-                }
-            });
-
-            // Remover fotos existentes
-            document.querySelectorAll('.gallery-item .delete-btn').forEach(btn => {
-                btn.addEventListener('click', function () {
-                    this.parentElement.remove();
-                });
-            });
-
-            // Form Submission
-            const form = document.getElementById('edit-profile-form');
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-
-                // Simulação de salvamento
-                const name = document.getElementById('name').value;
-                alert(`Perfil "${name}" salvo com sucesso!`);
-
-                // Aqui normalmente você enviaria os dados para o servidor
-                // window.location.href = 'perfil.html'; // Redirecionar para o perfil
-            });
-
-            // Botão Cancelar
-            document.querySelector('.btn-secondary').addEventListener('click', () => {
-                if (confirm('Tem certeza que deseja cancelar? Todas as alterações não salvas serão perdidas.')) {
-                    window.location.href = 'perfil.html';
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>
