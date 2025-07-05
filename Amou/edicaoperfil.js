@@ -56,13 +56,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    coverInput.addEventListener('change', async (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            coverBase64 = await toBase64(file);
-            coverPreview.innerHTML = <img src="${coverBase64}" alt="Preview da Capa">;
-        }
-    });
 
     document.getElementById('edit-profile-form').addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -80,8 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
             facebook: document.getElementById('facebook').value,
             twitter: document.getElementById('twitter').value,
             linkedin: document.getElementById('linkedin').value,
-            fotoPerfilUrl: avatarBase64,
-            fotoCapaUrl: coverBase64
+            fotoPerfilUrl: avatarBase64
         };
 
         const response = await fetch(http://localhost:8080/api/organizadores/${id}, {
