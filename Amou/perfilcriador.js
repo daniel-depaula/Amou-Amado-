@@ -56,7 +56,14 @@
         }
     }
 
-
+    document.querySelector('.btn-editar-perfil')?.addEventListener('click', () => {
+    // Redirecionar para página de edição ou abrir modal
+    const organizerId = getUrlParams().id;
+    window.location.href = `editar-perfil.html?id=${organizerId}`;
+    
+    // Ou para abrir um modal:
+    // abrirModalEdicao();
+});
   
     // Inicialização
     document.addEventListener('DOMContentLoaded', () => {

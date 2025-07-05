@@ -69,6 +69,36 @@
      margin-bottom: 25px;
  }
 
+
+.organizer-actions {
+    margin: 20px 0;
+}
+
+.btn-editar-perfil {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+    gap: 8px;
+}
+
+.btn-editar-perfil:hover {
+    background: #e0aec9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-editar-perfil i {
+    font-size: 0.9rem;
+}
+
  .organizer-meta {
      display: flex;
      flex-wrap: wrap;
